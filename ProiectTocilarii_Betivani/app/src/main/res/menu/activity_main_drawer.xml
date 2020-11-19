@@ -3,10 +3,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <!-- adaugati <item> pentru fiecare optiune pe care o doriti in meniul lateral-->
+        <!-- adaugati <item> pentru fiecare optiune pe care o
+        doriti in meniul lateral-->
         <item
-            android:id="@+id/main_nav_home"
-            android:icon="@android:drawable/ic_menu_camera"
-            android:title="Hello" />
+            android:id="@+id/menu_item_AllAcounts"
+            android:icon="@drawable/acounts_icon"
+            android:title="@string/menu_all_acounts"
+            />
+        <item
+            android:id="@+id/menu_item_CreditAcounts"
+            android:icon="@drawable/credit_icon"
+            android:title="@string/menu_credit_accounts" />
+        <item
+            android:id="@+id/menu_item_DepositAccounts"
+            android:icon="@drawable/deposit_icon"
+            android:title="@string/menu_deposit_accounts" />
+        <item
+            android:id="@+id/menu_item_Statistics"
+            android:icon="@drawable/statistics_icon"
+            android:title="@string/menu_statistics_icon" />
     </group>
 </menu>
