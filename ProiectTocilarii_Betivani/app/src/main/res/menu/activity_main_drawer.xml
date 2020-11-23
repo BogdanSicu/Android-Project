@@ -5,22 +5,39 @@
     <group android:checkableBehavior="single">
         <!-- adaugati <item> pentru fiecare optiune pe care o
         doriti in meniul lateral-->
-        <item
-            android:id="@+id/menu_item_AllAcounts"
-            android:icon="@drawable/acounts_icon"
-            android:title="@string/menu_all_acounts"
-            />
-        <item
-            android:id="@+id/menu_item_CreditAcounts"
-            android:icon="@drawable/credit_icon"
-            android:title="@string/menu_credit_accounts" />
-        <item
-            android:id="@+id/menu_item_DepositAccounts"
-            android:icon="@drawable/deposit_icon"
-            android:title="@string/menu_deposit_accounts" />
-        <item
-            android:id="@+id/menu_item_Statistics"
-            android:icon="@drawable/statistics_icon"
-            android:title="@string/menu_statistics_icon" />
+        <item android:title="@string/menu_acounts">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/menu_item_AllAcounts"
+                        android:icon="@drawable/acounts_icon"
+                        android:title="@string/menu_all_acounts"
+                        />
+                    <item
+                        android:id="@+id/menu_item_CreditAcounts"
+                        android:icon="@drawable/credit_icon"
+                        android:title="@string/menu_credit_accounts" />
+                    <item
+                        android:id="@+id/menu_item_DepositAccounts"
+                        android:icon="@drawable/deposit_icon"
+                        android:title="@string/menu_deposit_accounts" />
+                </group>
+            </menu>
+        </item>
+
+        <item android:title="@string/menu_Feedback">
+            <menu >
+                <group>
+                    <item
+                        android:id="@+id/menu_item_Statistics"
+                        android:icon="@drawable/statistics_icon"
+                        android:title="@string/menu_statistics" />
+                    <item
+                        android:id="@+id/menu_item_give"
+                        android:icon="@drawable/feedback_icon"
+                        android:title="@string/menu_feedback" />
+                </group>
+            </menu>
+        </item>
     </group>
 </menu>
