@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
             if (actionId == EditorInfo.IME_ACTION_SEND) {
                 if (v.getText().toString().equals("1234")) {
-
                     Intent main = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(main);
                     finish();
@@ -59,12 +57,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, v.getText().toString() + " is the wrong password", Toast.LENGTH_LONG).show();
                     v.setText("");
                 }
-
             }
             return false;
         }
     };
-
 
     //pentru a scoate action bar
     @Override

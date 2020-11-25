@@ -10,16 +10,16 @@
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/menu_item_AllAcounts"
-                        android:icon="@drawable/acounts_icon"
+                        android:icon="@drawable/icon_acounts"
                         android:title="@string/menu_all_acounts"
                         />
                     <item
                         android:id="@+id/menu_item_CreditAcounts"
-                        android:icon="@drawable/credit_icon"
+                        android:icon="@drawable/icon_credit"
                         android:title="@string/menu_credit_accounts" />
                     <item
                         android:id="@+id/menu_item_DepositAccounts"
-                        android:icon="@drawable/deposit_icon"
+                        android:icon="@drawable/icon_deposit"
                         android:title="@string/menu_deposit_accounts" />
                 </group>
             </menu>
@@ -30,11 +30,11 @@
                 <group>
                     <item
                         android:id="@+id/menu_item_Statistics"
-                        android:icon="@drawable/statistics_icon"
+                        android:icon="@drawable/icon_statistics"
                         android:title="@string/menu_statistics" />
                     <item
                         android:id="@+id/menu_item_give"
-                        android:icon="@drawable/feedback_icon"
+                        android:icon="@drawable/icon_feedback"
                         android:title="@string/menu_feedback" />
                 </group>
             </menu>

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         android:contentDescription="@string/nav_header_desc"
-        app:srcCompat="@drawable/menu_icon_mediu" />
+        app:srcCompat="@drawable/icon_menu" />
 
     <TextView
         android:id="@+id/vt_header_appName"

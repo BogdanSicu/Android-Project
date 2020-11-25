@@ -33,6 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35500002"
-        app:srcCompat="@drawable/key_icon_124" />
+        app:srcCompat="@drawable/icon_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

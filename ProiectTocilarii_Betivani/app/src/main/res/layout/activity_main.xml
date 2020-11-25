@@ -21,5 +21,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        android:theme="@style/menu_item_text_size"/>
+        android:theme="@style/menu_item_text_size"
+        app:insetForeground="@android:color/transparent"
+        />
 </androidx.drawerlayout.widget.DrawerLayout>
