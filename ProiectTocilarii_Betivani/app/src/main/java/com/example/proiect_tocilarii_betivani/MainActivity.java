@@ -1,25 +1,28 @@
 package com.example.proiect_tocilarii_betivani;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.view.WindowManager;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
+
+    private Fragment fragmentCreated;
+    private NavigationView navigationView;
+
     private View decorView;
     // Hide both the navigation bar and the status bar.
     // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
@@ -43,8 +46,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setContentView(R.layout.activity_main);
+//        initComponents();
+        openDefaultFragment();
         configNavigation();
     }
+    
     // Cum sa faci sa setezi meniul si bara cu butonul pentru meniu
     private void configNavigation() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -79,5 +85,47 @@ public class MainActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+    }
+
+//    Am deschis primul fragment -> cel cu liste
+    private void openDefaultFragment()  {
+            fragmentCreated = new FragmentAccounts();
+            getSupportFragmentManager().beginTransaction().add(R.id.main_frame_container, fragmentCreated).commit();
+//            navigationView.setCheckedItem(R.id.drawer_layout);
+    }
+
+    //TO DO -> deschiderea fragmentului in functie de ce buton am apasat
+    private void openFragment() {
+        //se preia managerul de la nivelul appCompatActivity pentru a putea adauga un nou fragment
+        //in interiorul unui FrameLayout
+        getSupportFragmentManager()
+                .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
+                .replace(R.id.main_frame_container, fragmentCreated)//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
+                .commit();//se confirma schimbarea
+    }
+
+//    TO DO -> nush, help Baljit
+    private void initComponents() {
+        navigationView = findViewById(R.id.drawer_layout);
+        //atasare eveniment de click pe optiunile din meniul lateral
+        navigationView.setNavigationItemSelectedListener(addNavigationMenuItemSelectedEvent());
+    }
+
+    //TO DO -> butoanele de navigatie si trimisul de intent
+    private NavigationView.OnNavigationItemSelectedListener addNavigationMenuItemSelectedEvent() {
+        return new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.menu_item_AllAcounts) {
+
+                }
+
+                //incarcam pe ecran fragmentul corespunzator optiunii selectate
+                openFragment();
+                //inchidem meniul lateral
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        };
     }
 }
