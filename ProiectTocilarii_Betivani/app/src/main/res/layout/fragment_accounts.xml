@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentAccounts"
-    android:id="@+id/accounts_fragment_layout">
-
+    android:id="@+id/accounts_fragment_layout"
+    >
+<!--    android:background="@drawable/adapter_background"-->
 
     <TextView
         android:id="@+id/accounts_textview"

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/adapter_background">
+
+    >
 
     <ImageView
         android:id="@+id/lv_row_typeIcon"

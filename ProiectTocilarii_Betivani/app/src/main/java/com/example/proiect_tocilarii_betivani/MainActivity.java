@@ -32,23 +32,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // afiseaza aplicatia pe tot ecranul
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        //pentru a scoate action bar
-        decorView = getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener(){
-            @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if(visibility == 0)
-                    decorView.setSystemUiVisibility(hideSystemBars());
-            }
-        });
-
         setContentView(R.layout.activity_main);
-//        initComponents();
-        openDefaultFragment();
+
+        //Afisare pe tot ecranul
+        hideBars();
+
         configNavigation();
+        initComponents();
+        openDefaultFragment(savedInstanceState);
+    }
+
+    private void initComponents() {
+        navigationView = findViewById(R.id.nav_view);
+        //atasare eveniment de click pe optiunile din meniul lateral
+        navigationView.setNavigationItemSelectedListener(addNavigationMenuItemSelectedEvent());
     }
     
     // Cum sa faci sa setezi meniul si bara cu butonul pentru meniu
@@ -68,6 +65,42 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState(); // Afiseaza butonul pe toolbar
     }
 
+    //TO DO -> butoanele de navigatie si trimisul de intent
+    private NavigationView.OnNavigationItemSelectedListener addNavigationMenuItemSelectedEvent() {
+        return new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.menu_item_AllAcounts) {
+
+                }
+
+                //incarcam pe ecran fragmentul corespunzator optiunii selectate
+                openFragment();
+                //inchidem meniul lateral
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        };
+    }
+
+    //    Am deschis primul fragment -> cel cu liste
+    private void openDefaultFragment(Bundle SavedInstanceState)  {
+        if(SavedInstanceState == null){
+            fragmentCreated = FragmentAccounts.newInstance(100);
+            getSupportFragmentManager().beginTransaction().add(R.id.main_frame_container, fragmentCreated).commit();
+//            navigationView.setCheckedItem(R.id.drawer_layout);
+        }
+    }
+
+    //TO DO -> deschiderea fragmentului in functie de ce buton am apasat
+    private void openFragment() {
+        //se preia managerul de la nivelul appCompatActivity pentru a putea adauga un nou fragment
+        //in interiorul unui FrameLayout
+        getSupportFragmentManager()
+                .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
+                .replace(R.id.main_frame_container, fragmentCreated)//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
+                .commit();//se confirma schimbarea
+    }
 
     //pentru a scoate action bar
     @Override
@@ -86,46 +119,26 @@ public class MainActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
     }
+    // afiseaza aplicatia pe tot ecranul
+    private void hideBars(){
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-//    Am deschis primul fragment -> cel cu liste
-    private void openDefaultFragment()  {
-            fragmentCreated = new FragmentAccounts();
-            getSupportFragmentManager().beginTransaction().add(R.id.main_frame_container, fragmentCreated).commit();
-//            navigationView.setCheckedItem(R.id.drawer_layout);
-    }
-
-    //TO DO -> deschiderea fragmentului in functie de ce buton am apasat
-    private void openFragment() {
-        //se preia managerul de la nivelul appCompatActivity pentru a putea adauga un nou fragment
-        //in interiorul unui FrameLayout
-        getSupportFragmentManager()
-                .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
-                .replace(R.id.main_frame_container, fragmentCreated)//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
-                .commit();//se confirma schimbarea
-    }
-
-//    TO DO -> nush, help Baljit
-    private void initComponents() {
-        navigationView = findViewById(R.id.drawer_layout);
-        //atasare eveniment de click pe optiunile din meniul lateral
-        navigationView.setNavigationItemSelectedListener(addNavigationMenuItemSelectedEvent());
-    }
-
-    //TO DO -> butoanele de navigatie si trimisul de intent
-    private NavigationView.OnNavigationItemSelectedListener addNavigationMenuItemSelectedEvent() {
-        return new NavigationView.OnNavigationItemSelectedListener() {
+        //pentru a scoate action bar
+        decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener(){
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.menu_item_AllAcounts) {
-
-                }
-
-                //incarcam pe ecran fragmentul corespunzator optiunii selectate
-                openFragment();
-                //inchidem meniul lateral
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0)
+                    decorView.setSystemUiVisibility(hideSystemBars());
             }
-        };
+        });
     }
+
+
+
+
+
+
+
+
 }
