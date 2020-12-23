@@ -71,9 +71,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.menu_item_AllAcounts) {
-
+                    fragmentCreated = FragmentAccounts.newInstance(100);//pentru toate conturile
                 }
-
+                if(item.getItemId() == R.id.menu_item_CreditAcounts){
+                    fragmentCreated = FragmentAccounts.newInstance(101);//pentru conturile de credit
+                }
+                if(item.getItemId() == R.id.menu_item_DepositAccounts){
+                    fragmentCreated = FragmentAccounts.newInstance(102);//pentru conturile de debit
+                }
+                if(item.getItemId() == R.id.menu_item_Statistics){
+                    //to do
+                }
+                if(item.getItemId() == R.id.menu_item_Calculate){
+                    //to do
+                }
                 //incarcam pe ecran fragmentul corespunzator optiunii selectate
                 openFragment();
                 //inchidem meniul lateral
@@ -87,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
     private void openDefaultFragment(Bundle SavedInstanceState)  {
         if(SavedInstanceState == null){
             fragmentCreated = FragmentAccounts.newInstance(100);
-            getSupportFragmentManager().beginTransaction().add(R.id.main_frame_container, fragmentCreated).commit();
-//            navigationView.setCheckedItem(R.id.drawer_layout);
+            //getSupportFragmentManager().beginTransaction().add(R.id.main_frame_container, fragmentCreated).commit();
+            openFragment();
+            navigationView.setCheckedItem(R.id.drawer_layout);
         }
     }
 

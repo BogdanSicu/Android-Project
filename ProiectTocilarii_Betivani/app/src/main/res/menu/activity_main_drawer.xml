@@ -32,10 +32,16 @@
                         android:id="@+id/menu_item_Statistics"
                         android:icon="@drawable/icon_statistics"
                         android:title="@string/menu_statistics" />
+                </group>
+            </menu>
+        </item>
+        <item android:title="@string/loan_calculator">
+            <menu >
+                <group>
                     <item
-                        android:id="@+id/menu_item_give"
-                        android:icon="@drawable/icon_feedback"
-                        android:title="@string/menu_feedback" />
+                        android:id="@+id/menu_item_Calculate"
+                        android:icon="@drawable/calculator_black"
+                        android:title="@string/calculate_loan" />
                 </group>
             </menu>
         </item>

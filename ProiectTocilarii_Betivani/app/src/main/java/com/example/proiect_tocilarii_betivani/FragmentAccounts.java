@@ -51,6 +51,16 @@ public class FragmentAccounts extends Fragment {
                 acounts.add(new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
                         22954.4f,-44.5f, "25/3/2018","31/12/2020", "Alex321", "BNR"));
             }
+            if(getArguments().getInt("ACOUNTS_KEY")==101){
+                acounts = new ArrayList<>();
+                acounts.add(new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
+                        22954.4f,-44.5f, "25/3/2018","31/12/2020", "Alex321", "BNR"));
+            }
+            if(getArguments().getInt("ACOUNTS_KEY")==102){
+                acounts = new ArrayList<>();
+                acounts.add(new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
+                        14954.4f, 55.5f,  "24/7/2020","24/12/2021" , "Alex", "BCR"));
+            }
         }
         if(getContext()!=null){
             ListaAdapter adapter = new ListaAdapter(getContext().getApplicationContext(), R.layout.lv_row_view, acounts, inflater);

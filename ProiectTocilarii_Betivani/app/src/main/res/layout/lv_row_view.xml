@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/lv_row_typeIcon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:srcCompat="@drawable/icon_coins"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/flow_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/lv_row_type"
@@ -26,28 +26,51 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="@string/lv_row_account_type"
         app:layout_constraintEnd_toStartOf="@+id/lv_row_date"
         app:layout_constraintStart_toEndOf="@+id/lv_row_typeIcon"
         app:layout_constraintTop_toTopOf="parent"
         />
-
+    <ImageView
+        android:id="@+id/lv_row_dateIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/expire_black"
+        app:layout_constraintStart_toEndOf="@+id/lv_row_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        />
     <TextView
         android:id="@+id/lv_row_date"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/lv_row_date"
         app:layout_constraintStart_toEndOf="@+id/lv_row_type"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lv_row_dateIcon"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:textAlignment="textEnd"
         />
+
+    <ImageView
+        android:id="@+id/lv_row_balanceIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/lv_row_bank_name"
+        app:layout_constraintEnd_toStartOf="@+id/lv_row_balance"
+        app:layout_constraintTop_toBottomOf="@+id/lv_row_type"
+        app:srcCompat="@drawable/wallet" />
     <TextView
         android:id="@+id/lv_row_balance"
         android:layout_width="wrap_content"
@@ -64,12 +87,23 @@
         android:textAlignment="textEnd"
         />
 
+    <ImageView
+        android:id="@+id/lv_row_bankIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lv_row_bank_name"
+        app:srcCompat="@drawable/bank_white" />
     <TextView
         android:id="@+id/lv_row_bank_name"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lv_row_bankName"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lv_row_bankIcon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/lv_row_iban"
         android:layout_marginStart="8dp"
@@ -81,20 +115,29 @@
         android:textAlignment="textStart"
         />
 
+    <ImageView
+        android:id="@+id/lv_row_ibanIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lv_row_iban"
+        app:srcCompat="@drawable/card_black" />
     <TextView
         android:id="@+id/lv_row_iban"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/lv_row_iban"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lv_row_ibanIcon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lv_row_balance"
+        app:layout_constraintStart_toEndOf="@+id/lv_row_bank_name"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:textAlignment="textEnd"
         />
 
