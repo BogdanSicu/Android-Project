@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.proiect_tocilarii_betivani.Util.AccountType;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
@@ -23,6 +24,7 @@ import java.util.List;
 public class FragmentAccounts extends Fragment {
     private ListView lv_acounts;
     private List<Acount> acounts;
+    private TextView listTypeAccounts;
 
     public FragmentAccounts(){}
 
@@ -37,6 +39,7 @@ public class FragmentAccounts extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_accounts, container, false);
+        listTypeAccounts = rootView.findViewById(R.id.accounts_textview);
         initComponents(rootView, inflater);
         return rootView;
     }
@@ -45,6 +48,7 @@ public class FragmentAccounts extends Fragment {
         lv_acounts = rootView.findViewById(R.id.accounts_fragment_listview);
         if(getArguments()!=null){
             if(getArguments().getInt("ACOUNTS_KEY")==100){
+                listTypeAccounts.setText("Your accounts");
                 acounts = new ArrayList<>();
                 acounts.add(new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
                         14954.4f, 55.5f,  "24/7/2020","24/12/2021" , "Alex", "BCR"));
@@ -52,11 +56,13 @@ public class FragmentAccounts extends Fragment {
                         22954.4f,-44.5f, "25/3/2018","31/12/2020", "Alex321", "BNR"));
             }
             if(getArguments().getInt("ACOUNTS_KEY")==101){
+                listTypeAccounts.setText("Your credit accounts");
                 acounts = new ArrayList<>();
                 acounts.add(new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
                         22954.4f,-44.5f, "25/3/2018","31/12/2020", "Alex321", "BNR"));
             }
             if(getArguments().getInt("ACOUNTS_KEY")==102){
+                listTypeAccounts.setText("Your deposit accounts");
                 acounts = new ArrayList<>();
                 acounts.add(new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
                         14954.4f, 55.5f,  "24/7/2020","24/12/2021" , "Alex", "BCR"));

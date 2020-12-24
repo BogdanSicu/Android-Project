@@ -13,7 +13,8 @@
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="160dp"
+        android:layout_marginTop="50dp"
         android:background="@color/AlbPNM"
         android:ems="10"
         android:inputType="numberPassword"
@@ -25,14 +26,15 @@
 
     <ImageView
         android:id="@+id/imagineKey"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toTopOf="@id/editLoginNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35500002"
-        app:srcCompat="@drawable/icon_login" />
+        app:srcCompat="@drawable/icon_login_white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

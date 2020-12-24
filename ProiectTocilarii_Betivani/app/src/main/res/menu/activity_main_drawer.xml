@@ -10,16 +10,16 @@
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/menu_item_AllAcounts"
-                        android:icon="@drawable/icon_acounts"
+                        android:icon="@drawable/icon_menu_all_accounts"
                         android:title="@string/menu_all_acounts"
                         />
                     <item
                         android:id="@+id/menu_item_CreditAcounts"
-                        android:icon="@drawable/icon_credit"
+                        android:icon="@drawable/icon_menu_credit_accounts"
                         android:title="@string/menu_credit_accounts" />
                     <item
                         android:id="@+id/menu_item_DepositAccounts"
-                        android:icon="@drawable/icon_deposit"
+                        android:icon="@drawable/icon_menu_deposit_accounts"
                         android:title="@string/menu_deposit_accounts" />
                 </group>
             </menu>
@@ -30,7 +30,7 @@
                 <group>
                     <item
                         android:id="@+id/menu_item_Statistics"
-                        android:icon="@drawable/icon_statistics"
+                        android:icon="@drawable/icon_menu_statistics"
                         android:title="@string/menu_statistics" />
                 </group>
             </menu>
@@ -40,7 +40,7 @@
                 <group>
                     <item
                         android:id="@+id/menu_item_Calculate"
-                        android:icon="@drawable/calculator_black"
+                        android:icon="@drawable/icon_menu_calculator_black"
                         android:title="@string/calculate_loan" />
                 </group>
             </menu>
