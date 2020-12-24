@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentCreated = FragmentAccounts.newInstance(102);//pentru conturile de debit
                 }
                 if(item.getItemId() == R.id.menu_item_Statistics){
-                    //to do
+                    fragmentCreated = FragmentGrafix.newInstance();
                 }
                 if(item.getItemId() == R.id.menu_item_Calculate){
                     //to do

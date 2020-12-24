@@ -25,4 +25,6 @@
     <string name="lv_row_empty">-</string>
     <string name="loan_calculator">Loan calculator</string>
     <string name="calculate_loan">Calculate loan</string>
+    <string name="grafx_credit_rate">Credit rate</string>
+    <string name="grafix_deposit_rate">Deposit rate</string>
 </resources>
