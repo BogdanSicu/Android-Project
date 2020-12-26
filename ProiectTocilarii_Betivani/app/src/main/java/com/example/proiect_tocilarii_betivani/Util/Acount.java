@@ -3,23 +3,41 @@ package com.example.proiect_tocilarii_betivani.Util;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+//marcam clasa pentru a sti baza de date ca aceasta clasa este TABELA
+@Entity(tableName = "accounts")
 public class Acount implements Parcelable {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name="id")
+    private long id;
+
+    @ColumnInfo(name="account_type")
     private AccountType accountType;
+    @ColumnInfo(name="iban")
     private String IBAN;
+    @ColumnInfo(name="balance")
     private float balance;
+    @ColumnInfo(name="rate")
     private float rate;
+    @ColumnInfo(name="create_date")
     private String createDate;
+    @ColumnInfo(name="expire_date")
     private String expirationDate;
+    @ColumnInfo(name="holder")
     private String holder;
+    @ColumnInfo(name="bank")
     private String bank;
 
 
+    @Ignore
     public Acount() {}
 
+    @Ignore
     public Acount(AccountType accountType, String IBAN, float balance, float rate, String createDate, String expirationDate, String holder, String bank) {
         this.accountType = accountType;
         this.IBAN = IBAN;
@@ -30,6 +48,20 @@ public class Acount implements Parcelable {
         this.holder = holder;
         this.bank = bank;
     }
+
+    public Acount(long id, AccountType accountType, String IBAN, float balance, float rate, String createDate, String expirationDate, String holder, String bank) {
+        this.id = id;
+        this.accountType = accountType;
+        this.IBAN = IBAN;
+        this.balance = balance;
+        this.rate = rate;
+        this.createDate = createDate;
+        this.expirationDate = expirationDate;
+        this.holder = holder;
+        this.bank = bank;
+    }
+
+
 
     public AccountType getAccountType() { return accountType; }
     public void setAccountType(AccountType accountType) { this.accountType = accountType; }
@@ -54,6 +86,15 @@ public class Acount implements Parcelable {
 
     public String getBank() { return bank; }
     public void setBank(String bank) { this.bank = bank; }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     @Override
     public int describeContents() {
