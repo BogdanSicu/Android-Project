@@ -38,8 +38,8 @@ public class FragmentGrafix extends Fragment {
 
     private void initList() {
         rates = new ArrayList<>();
-        rates.add(new Rates("BCR", 3, 0.6f));
-        rates.add(new Rates("BRD", 3, 0.6f));
-        rates.add(new Rates("BNR", 3, 0.6f));
+        rates.add(new Rates("BCR", 1, 0.6f));
+        rates.add(new Rates("BRD", 2.5f, 1.4f));
+        rates.add(new Rates("BNR", 3, 2.6f));
     }
 }

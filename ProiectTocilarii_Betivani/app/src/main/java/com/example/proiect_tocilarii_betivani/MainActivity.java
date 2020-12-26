@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //TO DO -> deschiderea fragmentului in functie de ce buton am apasat
+    //Deschidem fragmentul ales
     private void openFragment() {
         //se preia managerul de la nivelul appCompatActivity pentru a putea adauga un nou fragment
         //in interiorul unui FrameLayout
