@@ -27,4 +27,19 @@
     <string name="calculate_loan">Calculate loan</string>
     <string name="grafx_credit_rate">Credit rate</string>
     <string name="grafix_deposit_rate">Deposit rate</string>
+    <string name="calculator_select_your_bank">Select your bank</string>
+    <string name="calculator_select_your_account_type">Select your account type</string>
+    <string name="calculator_credit_account">Credit account</string>
+    <string name="calculator_deposit_account">Deposit account</string>
+    <string name="calculator_amount">Amount</string>
+    <string name="calculator_period">Period(months)</string>
+    <string name="calculator_calculate">Calculate</string>
+    <string name="calculator_conclusion">Conclusion</string>
+    <string name="calculator_monthly">Monthly</string>
+    <string name="calculator_yearly">Yearly</string>
+    <string name="calculator_total">Total</string>
+
+    <string name="toaster_invalid_amount">Please insert a valid amount (minimum %1$.2f)</string>
+    <string name="toaster_noBank">Please select a bank for your account</string>
+    <string name="toaster_invalid_period">Please insert a valid period(integer numbers, minimum %1$.0f)</string>
 </resources>

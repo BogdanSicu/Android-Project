@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944503471490",
+    "project_id": "proiect-dam-tocilarii-betivani",
+    "storage_bucket": "proiect-dam-tocilarii-betivani.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944503471490:android:d65c0318271e24926aa39b",
+        "android_client_info": {
+          "package_name": "com.example.proiect_tocilarii_betivani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944503471490-1j1qmg715a5lhs5o02m1kp73u8i7u1oj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5tN5IYqonzTwJnE-2wGvPbY9KVvFfJ04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944503471490-1j1qmg715a5lhs5o02m1kp73u8i7u1oj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

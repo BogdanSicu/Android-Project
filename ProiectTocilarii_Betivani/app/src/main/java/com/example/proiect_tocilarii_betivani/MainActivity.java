@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentCreated = FragmentGrafix.newInstance();
                 }
                 if(item.getItemId() == R.id.menu_item_Calculate){
-                    //to do
+                    fragmentCreated = FragmentCalculator.newInstance();
                 }
                 //incarcam pe ecran fragmentul corespunzator optiunii selectate
                 openFragment();

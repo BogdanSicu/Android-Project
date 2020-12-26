@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentAccounts"
+    android:id="@+id/accounts_fragment_layout"
+    >
+    <!--    android:background="@drawable/adapter_background"-->
+
+    <TextView
+        android:id="@+id/calculator_selectBank_tv"
+        android:text="@string/calculator_select_your_bank"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/calculator_bank_spinner"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Spinner
+        android:id="@+id/calculator_bank_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_selectBank_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/calculator_selectType_tv"
+        android:text="@string/calculator_select_your_account_type"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_bank_spinner"
+        app:layout_constraintBottom_toTopOf="@+id/calculator_type_rg"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/calculator_type_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_selectType_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:checkedButton="@+id/calculator_rb_credit">
+
+        <RadioButton
+            android:id="@+id/calculator_rb_credit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text="@string/calculator_credit_account" />
+
+        <RadioButton
+            android:id="@+id/calculator_rb_debit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="@string/calculator_deposit_account" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/calculator_amount_til"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_type_rg"
+        app:layout_constraintEnd_toStartOf="@+id/calculator_period_til"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/calculator_amount_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculator_amount"
+            android:inputType="numberDecimal"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/calculator_period_til"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/calculator_amount_til"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_type_rg"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/calculator_period_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calculator_period"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/calculator_calculate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_calculate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculator_period_til"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/login_background"
+        />
+
+    <TextView
+        android:id="@+id/calculator_conclusion_tv"
+        android:text="@string/calculator_conclusion"
+        android:textSize="24dp"
+        android:textAlignment="textStart"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculator_calculate_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/calculator_monthly_tv"
+        android:text="@string/calculator_monthly"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculator_conclusion_tv"
+        app:layout_constraintEnd_toStartOf="@+id/calculator_monthlyV_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+    <TextView
+        android:id="@+id/calculator_monthlyV_tv"
+        android:textSize="24dp"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/calculator_monthly_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_conclusion_tv"
+        />
+
+    <TextView
+        android:id="@+id/calculator_yearly_tv"
+        android:text="@string/calculator_yearly"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_monthly_tv"
+        app:layout_constraintEnd_toStartOf="@+id/calculator_yearlyV_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+    <TextView
+        android:id="@+id/calculator_yearlyV_tv"
+        android:textSize="24dp"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toEndOf="@+id/calculator_yearly_tv"
+        app:layout_constraintTop_toBottomOf="@id/calculator_monthlyV_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/calculator_total_tv"
+        android:text="@string/calculator_total"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_yearly_tv"
+        app:layout_constraintEnd_toStartOf="@+id/calculator_totalV_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+    <TextView
+        android:id="@+id/calculator_totalV_tv"
+        android:textSize="24dp"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toEndOf="@+id/calculator_total_tv"
+        app:layout_constraintTop_toBottomOf="@id/calculator_yearlyV_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
