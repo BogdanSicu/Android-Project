@@ -13,6 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
+import com.example.proiect_tocilarii_betivani.Util.AccountType;
+import com.example.proiect_tocilarii_betivani.Util.Acount;
+import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
 
     private View decorView;
@@ -26,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     private static final String aSmallPriceToPayForSalvation = "preferinte";
     private static final String password = "password";
     private String loadPassword;
+
+    private List<Acount> accounts = new ArrayList<>();;
+    private AccountService accountService;
 
 
     @Override
@@ -45,6 +56,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //mai intai initializam baza de date cu elemente inca din prima activitate
+        accountService = new AccountService(getApplicationContext());
+        accountService.getAllAccounts(InsertAccountIntoDBCallback());
 
         editText = findViewById(R.id.editLoginNumber);
 
@@ -82,6 +96,49 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    //luam toata lista de date si dupa introducem datele in baza de date
+    private Callback<List<Acount>> InsertAccountIntoDBCallback(){
+        return new Callback<List<Acount>>() {
+            @Override
+            public void runResultOnUiThread(List<Acount> result) {
+                if(result != null){
+                    accounts.clear();
+                    accounts.addAll(result);
+                    if(accounts.isEmpty()) {
+
+                        Acount cont1 = new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
+                                14954.4f, 55.5f, "24/7/2020", "24/12/2021", "Alex", "BCR");
+                        Acount cont2 =new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
+                                22954.4f, -44.5f, "25/3/2018", "31/12/2020", "Alex21", "BNR");
+                        Acount cont3 =new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
+                                14954.4f, 55.5f, "24/7/2020", "24/12/2021", "Alex3", "BCR");
+                        Acount cont4 =new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
+                                22954.4f, -44.5f, "25/3/2018", "31/12/2020", "Alex23421", "BNR");
+
+                        accountService.insertAccount(InsertOneAccount(), cont1);
+                        accountService.insertAccount(InsertOneAccount(), cont2);
+                        accountService.insertAccount(InsertOneAccount(), cont3);
+                        accountService.insertAccount(InsertOneAccount(), cont4);
+
+                    }
+                }
+            }
+        };
+    }
+
+    private Callback<Acount> InsertOneAccount(){
+        return new Callback<Acount>() {
+            @Override
+            public void runResultOnUiThread(Acount result) {
+                if(result != null) {
+
+                }
+            }
+        };
+    }
+
+
 
     //pentru a scoate action bar
     @Override

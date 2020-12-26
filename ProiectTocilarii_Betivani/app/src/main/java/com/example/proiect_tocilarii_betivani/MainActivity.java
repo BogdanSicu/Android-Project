@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     // a general rule, you should design your app to hide the status bar whenever you
     // hide the navigation bar.
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         configNavigation();
         initComponents();
         openDefaultFragment(savedInstanceState);
+
+
     }
 
     private void initComponents() {
