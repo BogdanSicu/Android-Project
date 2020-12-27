@@ -10,6 +10,7 @@ import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,14 +44,45 @@ public class FragmentAccounts extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_accounts, container, false);
         lv_acounts = rootView.findViewById(R.id.accounts_fragment_listview);
+        lv_acounts.setOnItemClickListener(itemSelectedListener());
         adapter = new ListaAdapter(getContext().getApplicationContext(), R.layout.lv_row_view, acounts, inflater);
 
         accountService = new AccountService(rootView.getContext());
+<<<<<<< HEAD
 
+=======
+>>>>>>> e22f9b2b5eb815dc81ef3e09d1ad2353677e3afa
         initComponents();
 
         return rootView;
     }
+
+    private AdapterView.OnItemClickListener itemSelectedListener() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Acount acount = acounts.get(position);
+                if(acount!=null){
+                    if(acount.getAccountType() == AccountType.Credit){
+                        Fragment fragment = FragmentCredit.newInstance(acount);
+                        openFragment(fragment);
+                    }
+                    else{
+                        Fragment fragment = FragmentDeposit.newInstance(acount);
+                        openFragment(fragment);
+                    }
+                }
+            }
+        };
+    }
+
+    private void openFragment(Fragment fragment) {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
+                .replace(R.id.main_frame_container, fragment).addToBackStack("PrevFragment")//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
+                .commit();//se confirma schimbarea
+    }
+
 
     private Callback<List<Acount>> getAllAccountsFromDB(){
         return new Callback<List<Acount>>() {
@@ -64,8 +96,6 @@ public class FragmentAccounts extends Fragment {
             }
         };
     }
-
-
 
     private void initComponents() {
 

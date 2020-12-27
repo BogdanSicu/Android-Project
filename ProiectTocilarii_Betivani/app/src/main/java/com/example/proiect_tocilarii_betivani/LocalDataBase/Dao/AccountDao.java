@@ -19,6 +19,12 @@ public interface AccountDao {
     @Query("select * from accounts")
     List<Acount> getAllAccounts();
 
+//    @Query("select * from accounts where account_type = 1")
+//    List<Acount> getAllCredit();
+//
+//    @Query("select * from accounts where account_type = 2")
+//    List<Acount> getAllDeposit();
+
     @Insert
     long insertAccount(Acount account);
 

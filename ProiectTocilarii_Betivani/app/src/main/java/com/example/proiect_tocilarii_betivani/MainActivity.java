@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         configNavigation();
         initComponents();
         openDefaultFragment(savedInstanceState);
-
-
     }
 
     private void initComponents() {
