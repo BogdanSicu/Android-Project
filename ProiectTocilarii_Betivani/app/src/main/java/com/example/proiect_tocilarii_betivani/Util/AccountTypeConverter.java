@@ -5,7 +5,7 @@ import androidx.room.TypeConverter;
 public class AccountTypeConverter {
 
     @TypeConverter
-    public static int fromHealthToInt(AccountType value) {
+    public static int fromTypeToInt(AccountType value) {
         return value.ordinal();
     }
 
@@ -13,7 +13,7 @@ public class AccountTypeConverter {
      * Convert an integer to Health
      */
     @TypeConverter
-    public static AccountType fromIntToHealth(int value) {
+    public static AccountType fromIntToType(int value) {
         return (AccountType.values()[value]);
     }
 }

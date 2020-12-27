@@ -61,8 +61,6 @@ public class Acount implements Parcelable {
         this.bank = bank;
     }
 
-
-
     public AccountType getAccountType() { return accountType; }
     public void setAccountType(AccountType accountType) { this.accountType = accountType; }
 
@@ -87,14 +85,13 @@ public class Acount implements Parcelable {
     public String getBank() { return bank; }
     public void setBank(String bank) { this.bank = bank; }
 
-
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
+
 
     @Override
     public int describeContents() {

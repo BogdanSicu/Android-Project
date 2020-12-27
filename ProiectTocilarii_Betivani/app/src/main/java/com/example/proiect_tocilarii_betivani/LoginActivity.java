@@ -131,9 +131,9 @@ public class LoginActivity extends AppCompatActivity {
         return new Callback<Acount>() {
             @Override
             public void runResultOnUiThread(Acount result) {
-                if(result != null) {
-
-                }
+//                if(result != null) {
+//
+//                }
             }
         };
     }

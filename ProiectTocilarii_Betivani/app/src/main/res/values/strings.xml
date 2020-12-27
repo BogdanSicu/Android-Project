@@ -42,4 +42,16 @@
     <string name="toaster_invalid_amount">Please insert a valid amount (minimum %1$.2f)</string>
     <string name="toaster_noBank">Please select a bank for your account</string>
     <string name="toaster_invalid_period">Please insert a valid period(integer numbers, minimum %1$.0f)</string>
+    <string name="holder_credit_label">Holder:</string>
+    <string name="iban_credit_label">IBAN:</string>
+    <string name="balance_credit_label">Balance:</string>
+    <string name="credit_rate_credit_label">Credit rate:</string>
+    <string name="created_on_credit_label">Created on</string>
+    <string name="expire_on_credit_label">Expire on</string>
+    <string name="pay_credit_label">Pay:</string>
+    <string name="amount_credit_label">Amount</string>
+    <string name="credit_credit_label">Credit account</string>
+    <string name="deposit_type">Deposit account</string>
+    <string name="deposit_0">0</string>
+    <string name="deposit_rate_label">Deposit rate</string>
 </resources>

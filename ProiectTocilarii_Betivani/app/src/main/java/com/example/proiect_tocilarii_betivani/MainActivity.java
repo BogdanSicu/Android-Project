@@ -1,5 +1,6 @@
 package com.example.proiect_tocilarii_betivani;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -43,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         configNavigation();
         initComponents();
         openDefaultFragment(savedInstanceState);
-
-
     }
 
     private void initComponents() {
