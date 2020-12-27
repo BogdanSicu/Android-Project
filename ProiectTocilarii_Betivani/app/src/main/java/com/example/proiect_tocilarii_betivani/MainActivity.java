@@ -1,5 +1,6 @@
 package com.example.proiect_tocilarii_betivani;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -89,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(item.getItemId() == R.id.menu_item_Calculate){
                     fragmentCreated = FragmentCalculator.newInstance();
+                }
+                if(item.getItemId() == R.id.settings_button){
+                    fragmentCreated = FragmentSettings.newInstance();
                 }
                 //incarcam pe ecran fragmentul corespunzator optiunii selectate
                 openFragment();

@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentAccounts"
     android:id="@+id/accounts_fragment_layout"
+    android:theme="@style/StyleYes"
     >
     <!--    android:background="@drawable/adapter_background"-->
 
@@ -123,7 +124,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/login_background"
+        android:background="@drawable/gradient_turquoise_green"
         />
 
     <TextView

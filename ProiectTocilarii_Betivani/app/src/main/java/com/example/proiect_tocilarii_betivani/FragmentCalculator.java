@@ -130,13 +130,13 @@ public class FragmentCalculator extends Fragment {
             curentExpence = expences.get(bank.getSelectedItemPosition());
         }
         if(accountType.getCheckedRadioButtonId() == R.id.calculator_rb_credit){
-            if(amount.getText() == null || Double.parseDouble(amount.getText().toString().trim()) < curentExpence.getMinCreditAmount()){
+            if(amount.getText() == null || (amount.getText() != null && (amount.getText().length() == 0 || Double.parseDouble(amount.getText().toString().trim()) < curentExpence.getMinCreditAmount()))){
                 Toast.makeText(getContext().getApplicationContext(),
                         getContext().getApplicationContext().getString(R.string.toaster_invalid_amount, curentExpence.getMinCreditAmount()),
                         Toast.LENGTH_LONG).show();
                 return false;
             }
-            if(period.getText() == null || Double.parseDouble(period.getText().toString().trim()) < curentExpence.getMinCreditPeriod()){
+            if(period.getText() == null || (period.getText() != null && (period.getText().length() == 0 || Double.parseDouble(period.getText().toString().trim()) < curentExpence.getMinCreditPeriod()))){
                 Toast.makeText(getContext().getApplicationContext(),
                         getContext().getApplicationContext().getString(R.string.toaster_invalid_period, curentExpence.getMinCreditPeriod()),
                         Toast.LENGTH_LONG).show();
@@ -144,13 +144,13 @@ public class FragmentCalculator extends Fragment {
             }
         }
         else {
-            if(amount.getText() == null || Double.parseDouble(amount.getText().toString().trim()) < curentExpence.getMinDepositAmount()){
+            if(amount.getText() == null || (amount.getText() != null && (amount.getText().length() == 0 || Double.parseDouble(amount.getText().toString().trim()) < curentExpence.getMinDepositAmount()))){
                 Toast.makeText(getContext().getApplicationContext(),
                         getContext().getApplicationContext().getString(R.string.toaster_invalid_amount, curentExpence.getMinDepositAmount()),
                         Toast.LENGTH_LONG).show();
                 return false;
             }
-            if(period.getText() == null || Double.parseDouble(period.getText().toString().trim()) < curentExpence.getMinDepositPeriod()){
+            if(period.getText() == null || (period.getText() != null && (period.getText().length() == 0 || Double.parseDouble(period.getText().toString().trim()) < curentExpence.getMinDepositPeriod()))){
                 Toast.makeText(getContext().getApplicationContext(),
                         getContext().getApplicationContext().getString(R.string.toaster_invalid_period, curentExpence.getMinDepositPeriod()),
                         Toast.LENGTH_LONG).show();

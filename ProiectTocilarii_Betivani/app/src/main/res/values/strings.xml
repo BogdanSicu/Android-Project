@@ -42,4 +42,11 @@
     <string name="toaster_invalid_amount">Please insert a valid amount (minimum %1$.2f)</string>
     <string name="toaster_noBank">Please select a bank for your account</string>
     <string name="toaster_invalid_period">Please insert a valid period(integer numbers, minimum %1$.0f)</string>
+    <string name="save_settings">Save settings</string>
+    <string name="settings_choose_background_color">Choose background color</string>
+    <string name="settings_choose_dark_or_white_mode">Choose theme</string>
+    <string name="settings">Settings</string>
+    <string name="Settings">Background settings</string>
+    <string name="settings_change_password">Change Password</string>
+    <string name="settings_credit_limit">Credit limit</string>
 </resources>

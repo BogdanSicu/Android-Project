@@ -25,7 +25,6 @@ import java.util.List;
 public class FragmentAccounts extends Fragment {
     private ListView lv_acounts;
     private List<Acount> acounts = new ArrayList<>();
-    private TextView listTypeAccounts;
     private AccountService accountService;
     private ListaAdapter adapter;
 
@@ -43,15 +42,10 @@ public class FragmentAccounts extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_accounts, container, false);
-        listTypeAccounts = rootView.findViewById(R.id.accounts_textview);
-
         lv_acounts = rootView.findViewById(R.id.accounts_fragment_listview);
         adapter = new ListaAdapter(getContext().getApplicationContext(), R.layout.lv_row_view, acounts, inflater);
 
-
         accountService = new AccountService(rootView.getContext());
-
-
 
         initComponents();
 
@@ -77,15 +71,12 @@ public class FragmentAccounts extends Fragment {
 
         if(getArguments()!=null){
             if(getArguments().getInt("ACOUNTS_KEY")==100){
-                listTypeAccounts.setText("Your accounts");
                 accountService.getAllAccounts(getAllAccountsFromDB());
             }
             if(getArguments().getInt("ACOUNTS_KEY")==101){
-                listTypeAccounts.setText("Your credit accounts");
                 accountService.getAllAccounts(getAllAccountsFromDB());
             }
             if(getArguments().getInt("ACOUNTS_KEY")==102){
-                listTypeAccounts.setText("Your deposit accounts");
                 accountService.getAllAccounts(getAllAccountsFromDB());
             }
         }
