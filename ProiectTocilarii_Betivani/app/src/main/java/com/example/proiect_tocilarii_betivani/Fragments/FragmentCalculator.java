@@ -1,4 +1,4 @@
-package com.example.proiect_tocilarii_betivani;
+package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.os.Bundle;
 
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.proiect_tocilarii_betivani.Firebase.CallBack;
 import com.example.proiect_tocilarii_betivani.Firebase.FirebaseService;
+import com.example.proiect_tocilarii_betivani.R;
 import com.example.proiect_tocilarii_betivani.Util.Expences;
 import com.google.android.material.textfield.TextInputEditText;
 

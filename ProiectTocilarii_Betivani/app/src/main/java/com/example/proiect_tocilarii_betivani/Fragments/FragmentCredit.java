@@ -1,4 +1,4 @@
-package com.example.proiect_tocilarii_betivani;
+package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.proiect_tocilarii_betivani.R;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
 import com.google.android.material.textfield.TextInputEditText;
 

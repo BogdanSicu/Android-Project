@@ -1,19 +1,17 @@
-package com.example.proiect_tocilarii_betivani;
+package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.proiect_tocilarii_betivani.R;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DecimalFormat;
 

@@ -1,14 +1,14 @@
 package com.example.proiect_tocilarii_betivani;
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
+import com.example.proiect_tocilarii_betivani.Fragments.FragmentAccounts;
+import com.example.proiect_tocilarii_betivani.Fragments.FragmentCalculator;
+import com.example.proiect_tocilarii_betivani.Fragments.FragmentGrafix;
+import com.example.proiect_tocilarii_betivani.Fragments.FragmentSettings;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;

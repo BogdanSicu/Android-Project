@@ -1,4 +1,4 @@
-package com.example.proiect_tocilarii_betivani;
+package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.os.Bundle;
 
@@ -6,15 +6,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
+import com.example.proiect_tocilarii_betivani.R;
 import com.example.proiect_tocilarii_betivani.Util.AccountType;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
 import com.example.proiect_tocilarii_betivani.Util.ListaAdapter;

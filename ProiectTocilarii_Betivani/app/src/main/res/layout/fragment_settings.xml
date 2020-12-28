@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FragmentAccounts"
+    tools:context=".Fragments.FragmentAccounts"
     android:id="@+id/accounts_fragment_layout"
     android:theme="@style/StyleYes"
     >
@@ -58,6 +58,7 @@
         tools:layout_editor_absoluteY="216dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_settings_password_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/settings_change_password"
@@ -78,6 +79,7 @@
         tools:layout_editor_absoluteY="216dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_settings_credit_limit_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/settings_credit_limit"

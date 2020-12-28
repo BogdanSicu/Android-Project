@@ -1,5 +1,7 @@
-package com.example.proiect_tocilarii_betivani;
+package com.example.proiect_tocilarii_betivani.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.proiect_tocilarii_betivani.R;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +25,13 @@ public class FragmentSettings extends Fragment {
     private Spinner settingTheme;
     private Button settingSave;
     private List<String> listThemes;
+    private TextInputEditText password;
+    private TextInputEditText maxCredit;
+    private static final String aSmallPriceToPayForSalvation = "preferinte";
+    private static final String prefferedPassword = "password";
+    private static final String prefferedTheme = "theme";
+    private static final String prefferedMaxCredit = "max_credit";
+
 
     public static FragmentSettings newInstance() {
         FragmentSettings fragment = new FragmentSettings();
@@ -42,6 +54,11 @@ public class FragmentSettings extends Fragment {
         return  new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //aparent in fragmente tre sa preiei si contextul aplicatiei
+                SharedPreferences preferences = getContext().getSharedPreferences(aSmallPriceToPayForSalvation, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+
                 View mortiiMatii = getActivity().findViewById(R.id.toolbar);
                 View mortiiMatii2 = getActivity().findViewById(R.id.main_app_head);
 
@@ -69,6 +86,16 @@ public class FragmentSettings extends Fragment {
                     mortiiMatii.setBackgroundResource(R.drawable.gradient_pink);
                     mortiiMatii2.setBackgroundResource(R.drawable.gradient_pink);
                 }
+                    editor.putString(prefferedTheme, settingTheme.getSelectedItem().toString());
+
+                if(password.getText() != null && password.getText().length()>0){
+                    editor.putString(prefferedPassword, password.getText().toString());
+                }
+
+                if(maxCredit.getText() != null && maxCredit.getText().length()>0){
+                    editor.putString(prefferedMaxCredit, maxCredit.getText().toString());
+                }
+
             }
         };
     }
@@ -93,5 +120,7 @@ public class FragmentSettings extends Fragment {
         listThemes = new ArrayList<>();
         settingTheme = view.findViewById(R.id.fragment_settings_spinner_android_theme);
         settingSave = view.findViewById(R.id.fragment_settings_save);
+        password = view.findViewById(R.id.fragment_settings_password_edit);
+        maxCredit = view.findViewById(R.id.fragment_settings_credit_limit_edit);
     }
 }

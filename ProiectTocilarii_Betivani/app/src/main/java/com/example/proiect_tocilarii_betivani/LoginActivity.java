@@ -2,6 +2,7 @@ package com.example.proiect_tocilarii_betivani;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,8 +33,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editText;
     private static final String aSmallPriceToPayForSalvation = "preferinte";
-    private static final String password = "password";
+    private static final String prefferedPassword = "password";
+    private static final String prefferedTheme = "theme";
+    private static final String prefferedMaxCredit = "max_credit";
     private String loadPassword;
+    private String loadTheme;
 
     private List<Acount> accounts = new ArrayList<>();;
     private AccountService accountService;
@@ -65,15 +69,67 @@ public class LoginActivity extends AppCompatActivity {
         //pentru a adauga alta functionalitate butonului de enter de pe keyboard
         editText.setOnEditorActionListener(enterButton);
 
+
         //adaugam in fisierul de preferinte o parola care este hardcodata
         //trebuie mai intai sa adaugam numele preferintelor noastre "preferinte" si tipul in care este salvat
         SharedPreferences preferinte = getSharedPreferences(aSmallPriceToPayForSalvation, MODE_PRIVATE);
-        //editam aceste preferinte
-        SharedPreferences.Editor editor = preferinte.edit();
 
-        editor.putString(password, "12345");
-        //aplicam schimbarile
-        editor.apply();
+
+        //verificam daca utilizatorul si.a introdus o parola in setari
+        //daca nu, punem o parola default in caz ca utilizatorul nu si.a introdus parola din setari
+        loadPassword = preferinte.getString(prefferedPassword,"");
+        if(loadPassword.equals("") || loadPassword.equals("12345")){
+            //editam aceste preferinte
+            SharedPreferences.Editor editor = preferinte.edit();
+
+            editor.putString(prefferedPassword, "0000");
+            //aplicam schimbarile
+            editor.apply();
+
+            Toast.makeText(LoginActivity.this, "The default password is 0000", Toast.LENGTH_LONG).show();
+        }
+
+//        //incarcam setarea de theme
+//        loadTheme = preferinte.getString(prefferedTheme, "");
+//        View mortiiMatii =  findViewById(R.id.toolbar);
+//        View mortiiMatii2 = findViewById(R.id.main_app_head);
+//        View mortiiMatii3 = findViewById(R.id.activity_login);
+//        if(loadTheme.equals("")) {
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//
+//        }else if(loadTheme.equals("Turquoise&Green gradient")){
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//
+//        } else if(loadTheme.equals("Dark&Green gradient")){
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_green);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_green);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_dark_green);
+//
+//        } else if(loadTheme.equals("Dark&Blue gradient")){
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_blue);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_blue);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_dark_blue);
+//
+//        } else if(loadTheme.equals("Blue&Green gradient")){
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_blue_green);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_blue_green);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_blue_green);
+//
+//        } else if(loadTheme.equals("Purple&Blue gradient")){
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_purple_blue);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_purple_blue);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_purple_blue);
+//
+//        } else if(loadTheme.equals("Pink-gradient")){
+//            mortiiMatii.setBackgroundResource(R.drawable.gradient_pink);
+//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_pink);
+//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_pink);
+//        }
+
     }
 
     //pentru a adauga alta functionalitate butonului de enter de pe keyboard
@@ -82,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
             if (actionId == EditorInfo.IME_ACTION_SEND) {
                 SharedPreferences preferinte = getSharedPreferences(aSmallPriceToPayForSalvation, MODE_PRIVATE);
-                loadPassword = preferinte.getString(password,"");
+                loadPassword = preferinte.getString(prefferedPassword,"");
                 if (v.getText().toString().equals(loadPassword)) {
                     Intent main = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(main);

@@ -1,4 +1,4 @@
-package com.example.proiect_tocilarii_betivani;
+package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.os.Bundle;
 
