@@ -56,22 +56,11 @@ public class FragmentDeposit extends Fragment {
         balance.setText(new DecimalFormat("##.##").format(acount.getBalance()));
         rate.setText(new DecimalFormat("##.##").format(acount.getRate()));
         create.setText(acount.getCreateDate());
-        expire.setText(acount.getExpirationDate());
+        expire.setText(String.valueOf(acount.getPeriod()));
         maxValue.setText(new DecimalFormat("##.##").format(10000));
 
         progressBar.setMax(30000);
         progressBar.setProgress(acount.getBalance()>10000 ? 10000:(int)acount.getBalance());
-
-//        Fragment fragment = getTargetFragment();
-//        fragment.getView().setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if( keyCode == KeyEvent.KEYCODE_BACK ){
-//                    if(getArguments().getInt("TYPE_KEY")==100)
-//                    Fragment prevFragment =  FragmentAccounts.newInstance(100);
-//                }
-//            }
-//        });
     }
 
 
