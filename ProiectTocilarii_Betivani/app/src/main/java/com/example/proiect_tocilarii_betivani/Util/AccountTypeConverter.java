@@ -10,7 +10,7 @@ public class AccountTypeConverter {
     }
 
     /**
-     * Convert an integer to Health
+     * Convert an integer to ACCOUNT
      */
     @TypeConverter
     public static AccountType fromIntToType(int value) {

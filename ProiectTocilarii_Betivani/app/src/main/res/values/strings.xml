@@ -56,7 +56,7 @@
     <string name="balance_credit_label">Balance:</string>
     <string name="credit_rate_credit_label">Credit rate:</string>
     <string name="created_on_credit_label">Created on</string>
-    <string name="expire_on_credit_label">Expire on</string>
+    <string name="period_credit_label">Period</string>
     <string name="pay_credit_label">Pay:</string>
     <string name="amount_credit_label">Amount</string>
     <string name="credit_credit_label">Credit account</string>

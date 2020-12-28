@@ -99,10 +99,10 @@ public class FragmentAccounts extends Fragment {
                 accountService.getAllAccounts(getAllAccountsFromDB());
             }
             if(getArguments().getInt("ACOUNTS_KEY")==101){
-                accountService.getAllAccounts(getAllAccountsFromDB());
+                accountService.getAllCredit(getAllAccountsFromDB());
             }
             if(getArguments().getInt("ACOUNTS_KEY")==102){
-                accountService.getAllAccounts(getAllAccountsFromDB());
+                accountService.getAllDeposit(getAllAccountsFromDB());
             }
         }
 

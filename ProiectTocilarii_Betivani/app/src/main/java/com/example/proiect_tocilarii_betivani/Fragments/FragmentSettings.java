@@ -28,7 +28,7 @@ public class FragmentSettings extends Fragment {
     private TextInputEditText password;
     private TextInputEditText maxCredit;
     private static final String aSmallPriceToPayForSalvation = "preferinte";
-    private static final String prefferedPassword = "password";
+    private static final String prefferedPassword = "Password";
     private static final String prefferedTheme = "theme";
     private static final String prefferedMaxCredit = "max_credit";
 

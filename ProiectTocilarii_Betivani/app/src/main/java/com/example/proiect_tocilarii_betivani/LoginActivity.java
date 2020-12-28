@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editText;
     private static final String aSmallPriceToPayForSalvation = "preferinte";
-    private static final String prefferedPassword = "password";
+    private static final String prefferedPassword = "Password";
     private static final String prefferedTheme = "theme";
     private static final String prefferedMaxCredit = "max_credit";
     private String loadPassword;
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         //verificam daca utilizatorul si.a introdus o parola in setari
         //daca nu, punem o parola default in caz ca utilizatorul nu si.a introdus parola din setari
         loadPassword = preferinte.getString(prefferedPassword,"");
-        if(loadPassword.equals("") || loadPassword.equals("12345")){
+        if(loadPassword.equals("")){
             //editam aceste preferinte
             SharedPreferences.Editor editor = preferinte.edit();
             editor.putString(prefferedPassword, "0000");

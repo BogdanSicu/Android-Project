@@ -2,6 +2,7 @@ package com.example.proiect_tocilarii_betivani.LocalDataBase.Services;
 
 import android.content.Context;
 
+import com.example.proiect_tocilarii_betivani.Firebase.CallBack;
 import com.example.proiect_tocilarii_betivani.LocalDataBase.Dao.AccountDao;
 import com.example.proiect_tocilarii_betivani.LocalDataBase.LocalDbManager;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
@@ -28,6 +29,30 @@ public class AccountService {
             @Override
             public List<Acount> call() throws Exception {
                 return accountDao.getAllAccounts();
+            }
+        };
+        //callback este intors catre activitatea/fragmentul care a facut cererea
+        //ceea ce inseamna si ca tot de acolo vine
+        asyncTaskRunner.executeAsync(callable, callback);
+    }
+
+    public void getAllCredit(Callback<List<Acount>> callback){
+        Callable<List<Acount>> callable = new Callable<List<Acount>>() {
+            @Override
+            public List<Acount> call() throws Exception {
+                return accountDao.getAllCredit();
+            }
+        };
+        //callback este intors catre activitatea/fragmentul care a facut cererea
+        //ceea ce inseamna si ca tot de acolo vine
+        asyncTaskRunner.executeAsync(callable, callback);
+    }
+
+    public void getAllDeposit(Callback<List<Acount>> callback){
+        Callable<List<Acount>> callable = new Callable<List<Acount>>() {
+            @Override
+            public List<Acount> call() throws Exception {
+                return accountDao.getAllDeposit();
             }
         };
         //callback este intors catre activitatea/fragmentul care a facut cererea
