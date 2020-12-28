@@ -8,15 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.RatesService;
 import com.example.proiect_tocilarii_betivani.Util.GrafixView;
 import com.example.proiect_tocilarii_betivani.Util.Rates;
+import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class FragmentGrafix extends Fragment {
-    private List<Rates> rates;
+
 
     public FragmentGrafix() {
         // Required empty public constructor
@@ -32,14 +34,11 @@ public class FragmentGrafix extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        initList();
-        return new GrafixView(getContext().getApplicationContext(), rates);
+            return new GrafixView(getContext().getApplicationContext());
     }
 
-    private void initList() {
-        rates = new ArrayList<>();
-        rates.add(new Rates("BCR", 1, 0.6f));
-        rates.add(new Rates("BRD", 2.5f, 1.4f));
-        rates.add(new Rates("BNR", 3, 2.6f));
-    }
+
+
+
+
 }

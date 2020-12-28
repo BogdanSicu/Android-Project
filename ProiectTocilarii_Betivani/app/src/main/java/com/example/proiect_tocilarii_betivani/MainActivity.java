@@ -146,8 +146,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-
-
                 if (item.getItemId() == R.id.menu_item_AllAcounts) {
                     fragmentCreated = FragmentAccounts.newInstance(100);//pentru toate conturile
                 }

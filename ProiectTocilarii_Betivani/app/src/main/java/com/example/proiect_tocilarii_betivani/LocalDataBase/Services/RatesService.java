@@ -37,7 +37,7 @@ public class RatesService {
     }
 
     //insert
-    public void insertAccount(Callback<Rates> callback,final Rates rates){
+    public void insertRate(Callback<Rates> callback, final Rates rates){
         Callable<Rates> callable = new Callable<Rates>() {
             @Override
             public Rates call() throws Exception {

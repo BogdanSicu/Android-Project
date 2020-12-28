@@ -31,6 +31,9 @@ public class FragmentSettings extends Fragment {
     private static final String prefferedPassword = "Password";
     private static final String prefferedTheme = "theme";
     private static final String prefferedMaxCredit = "max_credit";
+    private String loadTheme;
+    private String loadPassword;
+    private String loadMaxCredit;
 
 
     public static FragmentSettings newInstance() {
@@ -46,6 +49,16 @@ public class FragmentSettings extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         InitComponents(view);
         populateSpinners();
+
+        SharedPreferences preferinte =getContext().getSharedPreferences(aSmallPriceToPayForSalvation, Context.MODE_PRIVATE);
+        loadTheme = preferinte.getString(prefferedTheme, "");
+        loadPassword = preferinte.getString(prefferedPassword,"");
+        loadMaxCredit = preferinte.getString(prefferedMaxCredit, "");
+
+        password.setText(loadPassword);
+        maxCredit.setText(loadMaxCredit);
+        settingTheme.setSelection(listThemes.indexOf(loadTheme));
+
         settingSave.setOnClickListener(settingsSave());
         return view;
     }

@@ -15,8 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
+import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.RatesService;
 import com.example.proiect_tocilarii_betivani.Util.AccountType;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
+import com.example.proiect_tocilarii_betivani.Util.Rates;
 import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
 
 import java.util.ArrayList;
@@ -42,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private List<Acount> accounts = new ArrayList<>();;
     private AccountService accountService;
+    private List<Rates> ratesList = new ArrayList<>();
+    private RatesService rateService;
 
 
     @Override
@@ -64,6 +68,10 @@ public class LoginActivity extends AppCompatActivity {
         //mai intai initializam baza de date cu elemente inca din prima activitate
         accountService = new AccountService(getApplicationContext());
         accountService.getAllAccounts(InsertAccountIntoDBCallback());
+
+        rateService = new RatesService(getApplicationContext());
+        rateService.getAllRates(InsertDefaultRatesIntoDB());
+
 
         editText = findViewById(R.id.editLoginNumber);
 
@@ -135,8 +143,11 @@ public class LoginActivity extends AppCompatActivity {
                     Intent main = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(main);
                     finish();
+                }else if(loadPassword.equals("0000")){
+                    Toast.makeText(LoginActivity.this, "The default password is 0000", Toast.LENGTH_LONG).show();
                 }
                 else{
+
                     Toast.makeText(LoginActivity.this, v.getText().toString() + " is the wrong password", Toast.LENGTH_LONG).show();
                     v.setText("");
                 }
@@ -185,6 +196,44 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
     }
+
+
+    //verificam daca avem rate in baza de date
+    //daca nu avem, adaugam niste rate default
+    private Callback<List<Rates>> InsertDefaultRatesIntoDB(){
+        return new Callback<List<Rates>>() {
+            @Override
+            public void runResultOnUiThread(List<Rates> result) {
+                if(result != null){
+                    ratesList.clear();
+                    ratesList.addAll(result);
+
+                    if(ratesList.isEmpty()){
+                        Rates rate1 = new Rates("BCR", 3.4f, 2.5f);
+                        Rates rate2 = new Rates("BNR", 2.3f, 1.4f);
+                        Rates rate3 = new Rates("Transilvania", 4.5f, 3.5f);
+                        Rates rate4 = new Rates("BRD", 3.6f, 2.1f);
+
+                        rateService.insertRate(InsertOneRate(), rate1);
+                        rateService.insertRate(InsertOneRate(), rate2);
+                        rateService.insertRate(InsertOneRate(), rate3);
+                        rateService.insertRate(InsertOneRate(), rate4);
+                    }
+                }
+            }
+        };
+    }
+
+
+    private Callback<Rates> InsertOneRate(){
+        return new Callback<Rates>() {
+            @Override
+            public void runResultOnUiThread(Rates result) {
+
+            }
+        };
+    }
+
 
 
 

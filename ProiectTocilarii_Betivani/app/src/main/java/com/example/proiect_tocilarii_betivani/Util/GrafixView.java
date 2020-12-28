@@ -6,32 +6,39 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
+import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.RatesService;
 import com.example.proiect_tocilarii_betivani.R;
+import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GrafixView extends View {
     private Context context;
     private Paint paint;
-    private List<Rates> rates;
+    private List<Rates> ratesList = new ArrayList<>();
+    private RatesService ratesService;
 
 
-    public GrafixView(Context context, List<Rates> rates) {
+    public GrafixView(Context context) {
         super(context);
 
         this.context = context;
+
+        ratesService = new RatesService(getContext());
+        ratesService.getAllRates(getAllRatesFromDB());
+
         this.paint = new Paint();
         paint.setTextSize(50);
-        this.rates = rates;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         float barHeight = 50;
         float max = 0;
-        for(int i = 0; i < rates.size(); i++){
-            max = rates.get(i).getCreditRate() > max ? rates.get(i).getCreditRate():max;
-            max = rates.get(i).getDepositRate() > max ? rates.get(i).getDepositRate():max;
+        for(int i = 0; i < ratesList.size(); i++){
+            max = ratesList.get(i).getCreditRate() > max ? ratesList.get(i).getCreditRate():max;
+            max = ratesList.get(i).getDepositRate() > max ? ratesList.get(i).getDepositRate():max;
         }
 
         //Trasare bare
@@ -51,7 +58,7 @@ public class GrafixView extends View {
         paint.setColor(Color.BLACK);
         canvas.drawText(getContext().getString(R.string.grafix_deposit_rate), 510, 95, paint);
 
-        for (Rates rate : rates) {
+        for (Rates rate : ratesList) {
             float credit = rate.getCreditRate();
             float deposit = rate.getDepositRate();
 
@@ -81,5 +88,18 @@ public class GrafixView extends View {
 
             curent++;
         }
+    }
+
+    private Callback<List<Rates>> getAllRatesFromDB(){
+        return new Callback<List<Rates>>() {
+            @Override
+            public void runResultOnUiThread(List<Rates> result) {
+                if(result!=null){
+                    ratesList.clear();
+                    ratesList.addAll(result);
+                    invalidate();
+                }
+            }
+        };
     }
 }
