@@ -48,10 +48,6 @@ public class FragmentAccounts extends Fragment {
         adapter = new ListaAdapter(getContext().getApplicationContext(), R.layout.lv_row_view, acounts, inflater);
 
         accountService = new AccountService(rootView.getContext());
-<<<<<<< HEAD
-
-=======
->>>>>>> e22f9b2b5eb815dc81ef3e09d1ad2353677e3afa
         initComponents();
 
         return rootView;

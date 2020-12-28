@@ -54,13 +54,20 @@ public class FragmentSettings extends Fragment {
                     mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==2){
+                    mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_blue);
+                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_blue);
 
                 } else if(settingTheme.getSelectedItemPosition()==3){
+                    mortiiMatii.setBackgroundResource(R.drawable.gradient_blue_green);
+                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_blue_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==4){
+                    mortiiMatii.setBackgroundResource(R.drawable.gradient_purple_blue);
+                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_purple_blue);
 
                 } else if(settingTheme.getSelectedItemPosition()==5){
-
+                    mortiiMatii.setBackgroundResource(R.drawable.gradient_pink);
+                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_pink);
                 }
             }
         };
@@ -69,7 +76,7 @@ public class FragmentSettings extends Fragment {
     private void populateSpinners() {
         listThemes.add("Turquoise&Green gradient");
         listThemes.add("Dark&Green gradient");
-        listThemes.add("Purple gradient");
+        listThemes.add("Dark&Blue gradient");
         listThemes.add("Blue&Green gradient");
         listThemes.add("Purple&Blue gradient");
         listThemes.add("Pink-gradient");

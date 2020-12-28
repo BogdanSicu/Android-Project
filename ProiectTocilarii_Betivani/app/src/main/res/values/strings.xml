@@ -42,7 +42,7 @@
     <string name="toaster_invalid_amount">Please insert a valid amount (minimum %1$.2f)</string>
     <string name="toaster_noBank">Please select a bank for your account</string>
     <string name="toaster_invalid_period">Please insert a valid period(integer numbers, minimum %1$.0f)</string>
-<<<<<<< HEAD
+
     <string name="save_settings">Save settings</string>
     <string name="settings_choose_background_color">Choose background color</string>
     <string name="settings_choose_dark_or_white_mode">Choose theme</string>
@@ -50,7 +50,7 @@
     <string name="Settings">Background settings</string>
     <string name="settings_change_password">Change Password</string>
     <string name="settings_credit_limit">Credit limit</string>
-=======
+
     <string name="holder_credit_label">Holder:</string>
     <string name="iban_credit_label">IBAN:</string>
     <string name="balance_credit_label">Balance:</string>
@@ -63,5 +63,4 @@
     <string name="deposit_type">Deposit account</string>
     <string name="deposit_0">0</string>
     <string name="deposit_rate_label">Deposit rate</string>
->>>>>>> e22f9b2b5eb815dc81ef3e09d1ad2353677e3afa
 </resources>
