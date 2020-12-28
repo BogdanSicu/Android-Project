@@ -44,6 +44,17 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         />
+    <TextView
+        android:id="@+id/credit_bank_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credit_holder_tv"
+        app:layout_constraintStart_toEndOf="@id/credit_credit_tv"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        />
 
     <TextView
         android:id="@+id/credit_iban_label"
@@ -173,46 +184,42 @@
 
     <TextView
         android:id="@+id/credit_pay_label"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="@string/pay_credit_label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/credit_sum_tv"
         app:layout_constraintTop_toBottomOf="@+id/credit_create_tv"
         android:layout_marginTop="64dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/credit_sum_til"
+    <TextView
+        android:id="@+id/credit_sum_tv"
         android:layout_width="0dp"
+        android:textSize="20dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/credit_pay_label"
+        app:layout_constraintStart_toEndOf="@+id/credit_pay_label"
+        app:layout_constraintTop_toBottomOf="@+id/credit_create_tv"
         app:layout_constraintEnd_toStartOf="@+id/credit_pay_button"
+        android:layout_marginTop="64dp"
         android:layout_marginLeft="8dp"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/credit_sum_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/amount_credit_label" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginRight="8dp"
+        />
 
     <Button
         android:id="@+id/credit_pay_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pay_credit_label"
-        app:layout_constraintTop_toBottomOf="@id/credit_pay_label"
+        app:layout_constraintTop_toBottomOf="@+id/credit_create_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_sum_til"
-        android:layout_marginRight="8dp"
+        app:layout_constraintStart_toEndOf="@+id/credit_sum_tv"
+        android:layout_marginTop="55dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/gradient_turquoise_green"
         />
 

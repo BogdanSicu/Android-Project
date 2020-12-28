@@ -25,7 +25,8 @@ public class FragmentCredit extends Fragment {
     TextView rate;
     TextView create;
     TextView expire;
-    TextInputEditText amount;
+    TextView amount;
+    TextView bank;
     Button pay;
 
     Acount acount;
@@ -69,6 +70,12 @@ public class FragmentCredit extends Fragment {
         rate.setText(new DecimalFormat("##.##").format(acount.getRate()));
         create.setText(acount.getCreateDate());
         expire.setText(String.valueOf(acount.getPeriod()));
+        bank.setText(acount.getBank());
+
+        double sumPerMonth = acount.getBalance()/acount.getPeriod();
+        double totalPerMonth = sumPerMonth - sumPerMonth*acount.getRate()/100;
+
+        amount.setText(new DecimalFormat("##.##").format(totalPerMonth));
     }
 
     private void initComponents(View view) {
@@ -78,8 +85,9 @@ public class FragmentCredit extends Fragment {
         rate = view.findViewById(R.id.credit_rate_tv);
         create = view.findViewById(R.id.credit_create_tv);
         expire = view.findViewById(R.id.credit_expiration_tv);
-        amount = view.findViewById(R.id.credit_sum_tiet);
-        pay  =view.findViewById(R.id.credit_pay_button);
+        amount = view.findViewById(R.id.credit_sum_tv);
+        pay = view.findViewById(R.id.credit_pay_button);
+        bank = view.findViewById(R.id.credit_bank_tv);
 
         if(getArguments()!=null){
             acount = getArguments().getParcelable(CREDIT_ACCOUNT_KEY);

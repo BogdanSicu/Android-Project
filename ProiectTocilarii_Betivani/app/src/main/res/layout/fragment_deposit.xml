@@ -34,15 +34,27 @@
 
     <TextView
         android:id="@+id/deposit_credit_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="@string/deposit_type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deposit_holder_label"
-        app:layout_constraintBottom_toTopOf="@id/deposit_iban_label"
+        app:layout_constraintEnd_toStartOf="@+id/deposit_bank_tv"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        />
+    <TextView
+        android:id="@+id/deposit_bank_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deposit_holder_tv"
+        app:layout_constraintStart_toEndOf="@id/deposit_create_tv"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         />
 
     <TextView
@@ -159,6 +171,18 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         />
+    <TextView
+        android:id="@+id/deposit_profit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deposit_balance_tv"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        />
 
     <TextView
         android:id="@+id/deposit_minValue"
@@ -198,6 +222,6 @@
         android:layout_marginRight="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_balance_tv"/>
+        app:layout_constraintTop_toBottomOf="@+id/deposit_profit_tv"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

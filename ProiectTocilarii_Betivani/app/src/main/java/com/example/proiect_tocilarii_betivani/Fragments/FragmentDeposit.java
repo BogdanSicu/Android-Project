@@ -1,5 +1,6 @@
 package com.example.proiect_tocilarii_betivani.Fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,8 @@ import com.example.proiect_tocilarii_betivani.Util.Acount;
 
 import java.text.DecimalFormat;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class FragmentDeposit extends Fragment {
     public static final String DEPOSIT_ACCOUNT_KEY = "deposit_account_key";
 
@@ -25,9 +28,15 @@ public class FragmentDeposit extends Fragment {
     TextView create;
     TextView expire;
     TextView maxValue;
+    TextView bank;
+    TextView profit;
     ProgressBar progressBar;
 
     Acount acount;
+
+    private static final String aSmallPriceToPayForSalvation = "preferinte";
+    private static final String prefferedMaxCredit = "max_credit";
+
     public FragmentDeposit() {
         // Required empty public constructor
     }
@@ -57,10 +66,17 @@ public class FragmentDeposit extends Fragment {
         rate.setText(new DecimalFormat("##.##").format(acount.getRate()));
         create.setText(acount.getCreateDate());
         expire.setText(String.valueOf(acount.getPeriod()));
-        maxValue.setText(new DecimalFormat("##.##").format(10000));
+        bank.setText(String.valueOf(acount.getBank()));
 
-        progressBar.setMax(30000);
-        progressBar.setProgress(acount.getBalance()>10000 ? 10000:(int)acount.getBalance());
+        double Profit = acount.getBalance()*acount.getRate()/100;
+        profit.setText(new DecimalFormat("##.##").format(Profit));
+
+        String limit;
+        SharedPreferences preferinte = getContext().getApplicationContext().getSharedPreferences(aSmallPriceToPayForSalvation, MODE_PRIVATE);
+        limit = preferinte.getString(prefferedMaxCredit, "10000");
+        maxValue.setText(String.valueOf(limit));
+        progressBar.setMax(Integer.parseInt(limit));
+        progressBar.setProgress(acount.getBalance()>Integer.parseInt(limit) ? Integer.parseInt(limit):(int)acount.getBalance());
     }
 
 
@@ -73,6 +89,8 @@ public class FragmentDeposit extends Fragment {
         expire = view.findViewById(R.id.deposit_expiration_tv);
         maxValue = view.findViewById(R.id.deposit_maxValue);
         progressBar = view.findViewById(R.id.deposit_progressBar);
+        bank = view.findViewById(R.id.deposit_bank_tv);
+        profit = view.findViewById(R.id.deposit_profit_tv);
 
         if(getArguments()!=null){
             acount = getArguments().getParcelable(DEPOSIT_ACCOUNT_KEY);
