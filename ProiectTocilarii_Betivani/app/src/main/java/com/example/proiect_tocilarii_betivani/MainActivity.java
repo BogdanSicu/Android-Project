@@ -55,37 +55,37 @@ public class MainActivity extends AppCompatActivity {
         openDefaultFragment(savedInstanceState);
 
         View toolbarTheme =  findViewById(R.id.toolbar);
-        View headTheme = findViewById(R.id.toolbar).findViewById(R.id.main_app_head);
-
-
-        if(loadTheme.equals("")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-            headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-
-        }else if(loadTheme.equals("Turquoise&Green gradient")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-            headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-        }
-        else if(loadTheme.equals("Dark&Green gradient")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_green);
-            headTheme.setBackgroundResource(R.drawable.gradient_dark_green);
-
-        } else if(loadTheme.equals("Dark&Blue gradient")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
-            headTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
-
-        } else if(loadTheme.equals("Blue&Green gradient")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_blue_green);
-            headTheme.setBackgroundResource(R.drawable.gradient_blue_green);
-
-        } else if(loadTheme.equals("Purple&Blue gradient")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
-            headTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
-
-        } else if(loadTheme.equals("Pink-gradient")){
-            toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
-            headTheme.setBackgroundResource(R.drawable.gradient_pink);
-        }
+//        View headTheme = findViewById(R.id.toolbar).findViewById(R.id.main_app_head);
+//
+//
+//        if(loadTheme.equals("")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//            headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//
+//        }else if(loadTheme.equals("Turquoise&Green gradient")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//            headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+//        }
+//        else if(loadTheme.equals("Dark&Green gradient")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+//            headTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+//
+//        } else if(loadTheme.equals("Dark&Blue gradient")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+//            headTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+//
+//        } else if(loadTheme.equals("Blue&Green gradient")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+//            headTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+//
+//        } else if(loadTheme.equals("Purple&Blue gradient")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+//            headTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+//
+//        } else if(loadTheme.equals("Pink-gradient")){
+//            toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
+//            headTheme.setBackgroundResource(R.drawable.gradient_pink);
+//        }
 
     }
 
