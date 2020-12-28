@@ -68,7 +68,7 @@ public class FragmentCredit extends Fragment {
         balance.setText(new DecimalFormat("##.##").format(acount.getBalance()));
         rate.setText(new DecimalFormat("##.##").format(acount.getRate()));
         create.setText(acount.getCreateDate());
-        expire.setText(acount.getExpirationDate());
+        expire.setText(String.valueOf(acount.getPeriod()));
     }
 
     private void initComponents(View view) {

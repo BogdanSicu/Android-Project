@@ -37,7 +37,7 @@ public class ListaAdapter extends ArrayAdapter<Acount> {
         Acount acount = acounts.get(position);
         if(acount != null){
             addAcountType(view, acount.getAccountType());
-            addDate(view, acount.getExpirationDate());
+            addDate(view, acount.getPeriod());
             addbalance(view, acount.getBalance());
             addBankName(view, acount.getBank());
             addIBAN(view, acount.getIBAN());
@@ -56,13 +56,14 @@ public class ListaAdapter extends ArrayAdapter<Acount> {
         }
     }
 
-    private void addDate(View view, String expirationDate) {
+    private void addDate(View view, int period) {
         TextView textView = view.findViewById(R.id.lv_row_date);
-        if(expirationDate == null || expirationDate.isEmpty()){
+        String aux = String.valueOf(period);
+        if(aux == null || aux.isEmpty()){
             textView.setText(R.string.lv_row_empty);
         }
         else{
-            textView.setText(expirationDate);
+            textView.setText(aux);
         }
     }
 

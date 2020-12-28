@@ -156,13 +156,13 @@ public class LoginActivity extends AppCompatActivity {
                     if(accounts.isEmpty()) {
 
                         Acount cont1 = new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
-                                14954.4f, 55.5f, "24/7/2020", "24/12/2021", "Alex", "BCR");
+                                14954.4f, 55.5f, "24/7/2020", 24, "Alex", "BCR");
                         Acount cont2 =new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
-                                22954.4f, -44.5f, "25/3/2018", "31/12/2020", "Alex21", "BNR");
+                                22954.4f, -44.5f, "25/3/2018", 31, "Alex21", "BNR");
                         Acount cont3 =new Acount(AccountType.valueOf("Deposit"), "BCRO 0111 0222 3333 4444",
-                                14954.4f, 55.5f, "24/7/2020", "24/12/2021", "Alex3", "BCR");
+                                14954.4f, 55.5f, "24/7/2020", 24, "Alex3", "BCR");
                         Acount cont4 =new Acount(AccountType.valueOf("Credit"), "BCRO 0111 0222 3223 4444",
-                                22954.4f, -44.5f, "25/3/2018", "31/12/2020", "Alex23421", "BNR");
+                                22954.4f, -44.5f, "25/3/2018", 31, "Alex23421", "BNR");
 
                         accountService.insertAccount(InsertOneAccount(), cont1);
                         accountService.insertAccount(InsertOneAccount(), cont2);

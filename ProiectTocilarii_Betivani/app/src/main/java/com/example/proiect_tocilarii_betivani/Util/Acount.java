@@ -26,8 +26,8 @@ public class Acount implements Parcelable {
     private float rate;
     @ColumnInfo(name="create_date")
     private String createDate;
-    @ColumnInfo(name="expire_date")
-    private String expirationDate;
+    @ColumnInfo(name="period")
+    private int period;
     @ColumnInfo(name="holder")
     private String holder;
     @ColumnInfo(name="bank")
@@ -38,25 +38,25 @@ public class Acount implements Parcelable {
     public Acount() {}
 
     @Ignore
-    public Acount(AccountType accountType, String IBAN, float balance, float rate, String createDate, String expirationDate, String holder, String bank) {
+    public Acount(AccountType accountType, String IBAN, float balance, float rate, String createDate, int period, String holder, String bank) {
         this.accountType = accountType;
         this.IBAN = IBAN;
         this.balance = balance;
         this.rate = rate;
         this.createDate = createDate;
-        this.expirationDate = expirationDate;
+        this.period = period;
         this.holder = holder;
         this.bank = bank;
     }
 
-    public Acount(long id, AccountType accountType, String IBAN, float balance, float rate, String createDate, String expirationDate, String holder, String bank) {
+    public Acount(long id, AccountType accountType, String IBAN, float balance, float rate, String createDate, int period, String holder, String bank) {
         this.id = id;
         this.accountType = accountType;
         this.IBAN = IBAN;
         this.balance = balance;
         this.rate = rate;
         this.createDate = createDate;
-        this.expirationDate = expirationDate;
+        this.period = period;
         this.holder = holder;
         this.bank = bank;
     }
@@ -76,8 +76,8 @@ public class Acount implements Parcelable {
     public String getCreateDate() { return createDate; }
     public void setCreateDate(String createDate) { this.createDate = createDate; }
 
-    public String getExpirationDate() { return expirationDate; }
-    public void setExpirationDate(String expirationDate) { this.expirationDate = expirationDate; }
+    public int getPeriod() { return period; }
+    public void setPeriod(int period) { this.period = period; }
 
     public String getHolder() { return holder; }
     public void setHolder(String holder) { this.holder = holder; }
@@ -100,23 +100,25 @@ public class Acount implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
         dest.writeString(accountType.toString());
         dest.writeString(IBAN);
         dest.writeFloat(balance);
         dest.writeFloat(rate);
         dest.writeString(createDate);
-        dest.writeString(expirationDate);
+        dest.writeInt(period);
         dest.writeString(holder);
         dest.writeString(bank);
     }
 
     protected Acount(Parcel in) {
+        id = in.readLong();
         accountType = AccountType.valueOf(in.readString());
         IBAN = in.readString();
         balance = in.readFloat();
         rate = in.readFloat();
         createDate = in.readString();
-        expirationDate = in.readString();
+        period = in.readInt();
         holder = in.readString();
         bank = in.readString();
     }
