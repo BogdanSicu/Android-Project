@@ -2,6 +2,7 @@ package com.example.proiect_tocilarii_betivani;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String prefferedMaxCredit = "max_credit";
     private static final String prefferedTheme = "theme";
     private String loadTheme;
+    private int setariFacute=0;
 
 
     @Override
@@ -52,47 +54,40 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferinte = getSharedPreferences(aSmallPriceToPayForSalvation, MODE_PRIVATE);
         loadTheme = preferinte.getString(prefferedTheme, "");
 
-        openDefaultFragment(savedInstanceState);
-
         View toolbarTheme =  findViewById(R.id.toolbar);
-//        View headTheme = findViewById(R.id.toolbar).findViewById(R.id.main_app_head);
-//
-//
-//        if(loadTheme.equals("")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//            headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//
-//        }else if(loadTheme.equals("Turquoise&Green gradient")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//            headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//        }
-//        else if(loadTheme.equals("Dark&Green gradient")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_green);
-//            headTheme.setBackgroundResource(R.drawable.gradient_dark_green);
-//
-//        } else if(loadTheme.equals("Dark&Blue gradient")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
-//            headTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
-//
-//        } else if(loadTheme.equals("Blue&Green gradient")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_blue_green);
-//            headTheme.setBackgroundResource(R.drawable.gradient_blue_green);
-//
-//        } else if(loadTheme.equals("Purple&Blue gradient")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
-//            headTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
-//
-//        } else if(loadTheme.equals("Pink-gradient")){
-//            toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
-//            headTheme.setBackgroundResource(R.drawable.gradient_pink);
-//        }
+
+        if(loadTheme.equals("")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+
+        }else if(loadTheme.equals("Turquoise&Green gradient")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+        }
+        else if(loadTheme.equals("Dark&Green gradient")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+
+        } else if(loadTheme.equals("Dark&Blue gradient")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+
+        } else if(loadTheme.equals("Blue&Green gradient")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+
+        } else if(loadTheme.equals("Purple&Blue gradient")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+
+        } else if(loadTheme.equals("Pink-gradient")){
+            toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
+        }
+
+        openDefaultFragment(savedInstanceState);
 
     }
 
     private void initComponents() {
+
         navigationView = findViewById(R.id.nav_view);
         //atasare eveniment de click pe optiunile din meniul lateral
         navigationView.setNavigationItemSelectedListener(addNavigationMenuItemSelectedEvent());
+
     }
     
     // Cum sa faci sa setezi meniul si bara cu butonul pentru meniu
@@ -107,10 +102,41 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout,
                 toolbar,
                 R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
+                R.string.navigation_drawer_close){
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                if(setariFacute == 0){
+                    View headTheme = findViewById(R.id.main_app_head);
+
+                    if(loadTheme.equals("")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+
+                    }else if(loadTheme.equals("Turquoise&Green gradient")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+                    }
+                    else if(loadTheme.equals("Dark&Green gradient")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+
+                    } else if(loadTheme.equals("Dark&Blue gradient")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+
+                    } else if(loadTheme.equals("Blue&Green gradient")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+
+                    } else if(loadTheme.equals("Purple&Blue gradient")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+
+                    } else if(loadTheme.equals("Pink-gradient")){
+                        headTheme.setBackgroundResource(R.drawable.gradient_pink);
+                    }
+                    setariFacute=1;
+                }
+            }
+        };
         drawerLayout.addDrawerListener(actionBarDrawerToggle); // Leaga meniul de buton
         actionBarDrawerToggle.syncState(); // Afiseaza butonul pe toolbar
-
 
     }
 
@@ -119,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
         return new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+
                 if (item.getItemId() == R.id.menu_item_AllAcounts) {
                     fragmentCreated = FragmentAccounts.newInstance(100);//pentru toate conturile
                 }
@@ -146,16 +175,12 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    //    Am deschis primul fragment -> cel cu liste
+    // Am deschis primul fragment -> cel cu liste
     private void openDefaultFragment(Bundle SavedInstanceState)  {
         if(SavedInstanceState == null){
             fragmentCreated = FragmentAccounts.newInstance(100);
-
             openFragment();
             navigationView.setCheckedItem(R.id.drawer_layout);
-//            View headTheme = findViewById(R.id.main_app_head);
-//            int i=3;
-
         }
     }
 
