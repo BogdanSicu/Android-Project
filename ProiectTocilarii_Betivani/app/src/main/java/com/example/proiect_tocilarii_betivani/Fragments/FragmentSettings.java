@@ -59,32 +59,32 @@ public class FragmentSettings extends Fragment {
                 SharedPreferences preferences = getContext().getSharedPreferences(aSmallPriceToPayForSalvation, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
 
-                View mortiiMatii = getActivity().findViewById(R.id.toolbar);
-                View mortiiMatii2 = getActivity().findViewById(R.id.main_app_head);
+                View toolbarTheme = getActivity().findViewById(R.id.toolbar);
+                View headTheme = getActivity().findViewById(R.id.main_app_head);
 
                 if(settingTheme.getSelectedItemPosition()==0){
-                    mortiiMatii.setBackgroundResource(R.drawable.gradient_turquoise_green);
-                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_turquoise_green);
+                    toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+                    headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==1){
-                    mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_green);
-                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_green);
+                    toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+                    headTheme.setBackgroundResource(R.drawable.gradient_dark_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==2){
-                    mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_blue);
-                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_blue);
+                    toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+                    headTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
 
                 } else if(settingTheme.getSelectedItemPosition()==3){
-                    mortiiMatii.setBackgroundResource(R.drawable.gradient_blue_green);
-                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_blue_green);
+                    toolbarTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+                    headTheme.setBackgroundResource(R.drawable.gradient_blue_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==4){
-                    mortiiMatii.setBackgroundResource(R.drawable.gradient_purple_blue);
-                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_purple_blue);
+                    toolbarTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+                    headTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
 
                 } else if(settingTheme.getSelectedItemPosition()==5){
-                    mortiiMatii.setBackgroundResource(R.drawable.gradient_pink);
-                    mortiiMatii2.setBackgroundResource(R.drawable.gradient_pink);
+                    toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
+                    headTheme.setBackgroundResource(R.drawable.gradient_pink);
                 }
                     editor.putString(prefferedTheme, settingTheme.getSelectedItem().toString());
 
@@ -95,6 +95,7 @@ public class FragmentSettings extends Fragment {
                 if(maxCredit.getText() != null && maxCredit.getText().length()>0){
                     editor.putString(prefferedMaxCredit, maxCredit.getText().toString());
                 }
+                editor.apply();
 
             }
         };

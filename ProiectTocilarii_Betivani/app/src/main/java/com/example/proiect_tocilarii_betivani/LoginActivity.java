@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String prefferedMaxCredit = "max_credit";
     private String loadPassword;
     private String loadTheme;
+    private String loadMaxCredit;
 
     private List<Acount> accounts = new ArrayList<>();;
     private AccountService accountService;
@@ -81,54 +82,45 @@ public class LoginActivity extends AppCompatActivity {
         if(loadPassword.equals("") || loadPassword.equals("12345")){
             //editam aceste preferinte
             SharedPreferences.Editor editor = preferinte.edit();
-
             editor.putString(prefferedPassword, "0000");
             //aplicam schimbarile
             editor.apply();
-
             Toast.makeText(LoginActivity.this, "The default password is 0000", Toast.LENGTH_LONG).show();
         }
 
-//        //incarcam setarea de theme
-//        loadTheme = preferinte.getString(prefferedTheme, "");
-//        View mortiiMatii =  findViewById(R.id.toolbar);
-//        View mortiiMatii2 = findViewById(R.id.main_app_head);
-//        View mortiiMatii3 = findViewById(R.id.activity_login);
-//        if(loadTheme.equals("")) {
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//
-//        }else if(loadTheme.equals("Turquoise&Green gradient")){
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_turquoise_green);
-//
-//        } else if(loadTheme.equals("Dark&Green gradient")){
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_green);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_green);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_dark_green);
-//
-//        } else if(loadTheme.equals("Dark&Blue gradient")){
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_dark_blue);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_dark_blue);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_dark_blue);
-//
-//        } else if(loadTheme.equals("Blue&Green gradient")){
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_blue_green);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_blue_green);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_blue_green);
-//
-//        } else if(loadTheme.equals("Purple&Blue gradient")){
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_purple_blue);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_purple_blue);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_purple_blue);
-//
-//        } else if(loadTheme.equals("Pink-gradient")){
-//            mortiiMatii.setBackgroundResource(R.drawable.gradient_pink);
-//            mortiiMatii2.setBackgroundResource(R.drawable.gradient_pink);
-//            mortiiMatii3.setBackgroundResource(R.drawable.gradient_pink);
-//        }
+        loadMaxCredit = preferinte.getString(prefferedMaxCredit,"");
+        if(loadMaxCredit.equals("")){
+            SharedPreferences.Editor editor = preferinte.edit();
+            editor.putString(prefferedMaxCredit, "10000");
+            editor.apply();
+        }
+
+
+        //incarcam setarea de theme
+        loadTheme = preferinte.getString(prefferedTheme, "");
+        View loginTheme = findViewById(R.id.activity_login);
+
+        if(loadTheme.equals("")) {
+            loginTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+
+        }else if(loadTheme.equals("Turquoise&Green gradient")){
+            loginTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+
+        } else if(loadTheme.equals("Dark&Green gradient")){
+            loginTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+
+        } else if(loadTheme.equals("Dark&Blue gradient")){
+            loginTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+
+        } else if(loadTheme.equals("Blue&Green gradient")){
+            loginTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+
+        } else if(loadTheme.equals("Purple&Blue gradient")){
+            loginTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+
+        } else if(loadTheme.equals("Pink-gradient")){
+            loginTheme.setBackgroundResource(R.drawable.gradient_pink);
+        }
 
     }
 
