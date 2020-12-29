@@ -28,6 +28,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:text="@string/save_settings"
+        android:textSize="30dp"
+        android:fontFamily="@font/kelly_slab_regular"
         android:textColor="@color/AlbPNM"
         android:background="@drawable/button_turquoise_green"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +44,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:text="@string/settings_choose_dark_or_white_mode"
+        android:textSize="20dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@id/fragment_settings_spinner_android_theme"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/settings_change_password"
+            android:textSize="20dp"
+            android:fontFamily="@font/inconsolata_medium"
             android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -85,6 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/settings_credit_limit"
+            android:textSize="20dp"
+            android:fontFamily="@font/inconsolata_medium"
             android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>

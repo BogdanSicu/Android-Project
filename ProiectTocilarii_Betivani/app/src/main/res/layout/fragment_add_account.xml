@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.FragmentCredit"
-    android:id="@+id/fragment_credit">
+    android:id="@+id/fragment_credit"
+    >
     <TextView
         android:id="@+id/add_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Add new account"
+        android:text="@string/add_add_new_account"
         android:textSize="24dp"
         android:textAlignment="center"
         android:textStyle="bold"
@@ -20,6 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/kelly_slab_regular"
         />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -36,7 +38,8 @@
             android:id="@+id/add_name_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Holder name" />
+            android:fontFamily="@font/inconsolata_medium"
+            android:hint="@string/add_holder_name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -54,7 +57,8 @@
             android:id="@+id/add_bank_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bank" />
+            android:fontFamily="@font/inconsolata_medium"
+            android:hint="@string/add_bank" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -72,7 +76,8 @@
             android:id="@+id/add_iban_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="IBAN" />
+            android:fontFamily="@font/inconsolata_medium"
+            android:hint="@string/add_iban" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +95,8 @@
             android:id="@+id/add_rate_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Rate"
+            android:fontFamily="@font/inconsolata_medium"
+            android:hint="@string/add_rate"
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,7 +115,8 @@
             android:id="@+id/add_create_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Create date(dd/MM/yyyy)"
+            android:hint="@string/add_create_date_dd_mm_yyyy"
+            android:fontFamily="@font/inconsolata_medium"
             android:inputType="date"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +135,8 @@
             android:id="@+id/add_period_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Period(months)" />
+            android:fontFamily="@font/inconsolata_medium"
+            android:hint="@string/add_period_months" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -146,7 +154,8 @@
             android:id="@+id/add_balance_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Balance"
+            android:hint="@string/add_balance"
+            android:fontFamily="@font/inconsolata_medium"
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,21 +178,25 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Credit" />
+            android:fontFamily="@font/inconsolata_medium"
+            android:text="@string/add_credit" />
 
         <RadioButton
             android:id="@+id/add_type_deposit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="Deposit" />
+            android:fontFamily="@font/inconsolata_medium"
+            android:text="@string/add_deposit" />
     </RadioGroup>
 
     <Button
         android:id="@+id/add_Add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add account"
+        android:text="@string/add_add_account"
+        android:textSize="20dp"
+        android:fontFamily="@font/kelly_slab_regular"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

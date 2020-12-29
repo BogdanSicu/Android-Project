@@ -16,6 +16,8 @@
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:fontFamily="@font/inconsolata_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/calculator_bank_spinner"
@@ -40,6 +42,8 @@
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:fontFamily="@font/inconsolata_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculator_bank_spinner"
         app:layout_constraintBottom_toTopOf="@+id/calculator_type_rg"
@@ -64,6 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/inconsolata_medium"
             android:text="@string/calculator_credit_account" />
 
         <RadioButton
@@ -71,6 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/inconsolata_medium"
             android:text="@string/calculator_deposit_account" />
     </RadioGroup>
 
@@ -90,6 +98,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/calculator_amount"
+            android:textSize="20dp"
+            android:fontFamily="@font/inconsolata_medium"
             android:inputType="numberDecimal"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -110,6 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/calculator_period"
+            android:textSize="20dp"
+            android:fontFamily="@font/inconsolata_medium"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,6 +135,8 @@
         android:background="@drawable/button_turquoise_green"
         android:text="@string/calculator_calculate"
         android:textColor="@color/AlbPNM"
+        android:textSize="30dp"
+        android:fontFamily="@font/kelly_slab_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calculator_period_til" />
@@ -143,7 +157,9 @@
     <TextView
         android:id="@+id/calculator_monthly_tv"
         android:text="@string/calculator_monthly"
-        android:textSize="24dp"
+
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
@@ -154,7 +170,8 @@
         android:layout_marginTop="8dp"/>
     <TextView
         android:id="@+id/calculator_monthlyV_tv"
-        android:textSize="24dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_marginLeft="8dp"
@@ -167,7 +184,8 @@
     <TextView
         android:id="@+id/calculator_yearly_tv"
         android:text="@string/calculator_yearly"
-        android:textSize="24dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
@@ -178,7 +196,8 @@
         android:layout_marginTop="8dp"/>
     <TextView
         android:id="@+id/calculator_yearlyV_tv"
-        android:textSize="24dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         app:layout_constraintStart_toEndOf="@+id/calculator_yearly_tv"
@@ -190,7 +209,8 @@
     <TextView
         android:id="@+id/calculator_total_tv"
         android:text="@string/calculator_total"
-        android:textSize="24dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
@@ -201,7 +221,8 @@
         android:layout_marginTop="8dp"/>
     <TextView
         android:id="@+id/calculator_totalV_tv"
-        android:textSize="24dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         app:layout_constraintStart_toEndOf="@+id/calculator_total_tv"

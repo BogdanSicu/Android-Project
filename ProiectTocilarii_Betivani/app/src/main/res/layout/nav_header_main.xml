@@ -30,6 +30,8 @@
         android:text="Banking App"
         android:textAlignment="textEnd"
         android:layout_gravity="end"
+        android:textSize="20dp"
+        android:fontFamily="@font/kelly_slab_regular"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView

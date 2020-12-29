@@ -241,11 +241,13 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_turquoise_green"
-        android:text="@string/pay_credit_label"
+        android:text="@string/credit_pay"
         android:textColor="@color/AlbPNM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="30dp"
+        android:fontFamily="@font/inconsolata_medium"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

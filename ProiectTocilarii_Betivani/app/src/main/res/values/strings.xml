@@ -69,4 +69,16 @@
     <string name="deposit_balance_param">Balance: %1$.0f</string>
     <string name="deposit_profit_param">Your monthly loan: %1$.0f</string>
     <string name="menu_deposit_add">Add account</string>
+    <string name="add_add_new_account">Add new account</string>
+    <string name="add_holder_name">Holder name</string>
+    <string name="add_bank">Bank</string>
+    <string name="add_iban">IBAN</string>
+    <string name="add_rate">Rate</string>
+    <string name="add_create_date_dd_mm_yyyy">Create date(dd/MM/yyyy)</string>
+    <string name="add_period_months">Period(months)</string>
+    <string name="add_balance">Balance</string>
+    <string name="add_credit">Credit</string>
+    <string name="add_deposit">Deposit</string>
+    <string name="add_add_account">Add account</string>
+    <string name="credit_pay">Pay</string>
 </resources>

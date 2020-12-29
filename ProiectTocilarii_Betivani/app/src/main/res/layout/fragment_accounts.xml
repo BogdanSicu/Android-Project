@@ -8,8 +8,6 @@
     android:id="@+id/accounts_fragment_layout"
     >
 <!--    android:background="@drawable/adapter_background"-->
-
-
     <ListView
         android:id="@+id/accounts_fragment_listview"
         android:longClickable="true"
