@@ -57,9 +57,9 @@
     <string name="credit_rate_credit_label">Credit rate:</string>
     <string name="created_on_credit_label">Created on:</string>
     <string name="period_credit_label">Period (months):</string>
-    <string name="pay_credit_label">To be payed</string>
+    <string name="pay_credit_label">To be payed:</string>
     <string name="amount_credit_label">Amount</string>
-    <string name="credit_credit_label">Credit account at</string>
+    <string name="credit_credit_label">Bank:</string>
     <string name="deposit_type">Bank:</string>
     <string name="deposit_0">0</string>
     <string name="deposit_rate_label">Deposit rate:</string>
