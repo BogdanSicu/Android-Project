@@ -33,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
     // a general rule, you should design your app to hide the status bar whenever you
     // hide the navigation bar.
 
+
+//        pentru tematica --------------------------------------------------
     private static final String aSmallPriceToPayForSalvation = "preferinte";
     private static final String prefferedMaxCredit = "max_credit";
     private static final String prefferedTheme = "theme";
     private String loadTheme;
     private int setariFacute=0;
-
+// --------------------------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         configNavigation();
         initComponents();
 
+//        pentru tematica --------------------------------------------------
         SharedPreferences preferinte = getSharedPreferences(aSmallPriceToPayForSalvation, MODE_PRIVATE);
         loadTheme = preferinte.getString(prefferedTheme, "");
 
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         } else if(loadTheme.equals("Pink-gradient")){
             toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
         }
+//         --------------------------------------------------
 
         openDefaultFragment(savedInstanceState);
 
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close){
 
+//        pentru tematica --------------------------------------------------
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
@@ -133,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     setariFacute=1;
                 }
+//                 --------------------------------------------------
             }
         };
         drawerLayout.addDrawerListener(actionBarDrawerToggle); // Leaga meniul de buton

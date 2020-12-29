@@ -213,15 +213,15 @@
         android:id="@+id/credit_pay_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/button_turquoise_green"
         android:text="@string/pay_credit_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_create_tv"
+        android:textColor="@color/AlbPNM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/credit_sum_tv"
-        android:layout_marginTop="55dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/gradient_turquoise_green"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/credit_create_tv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.proiect_tocilarii_betivani.Firebase.CallBack;
 import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
 import com.example.proiect_tocilarii_betivani.R;
 import com.example.proiect_tocilarii_betivani.Util.AccountType;
@@ -21,6 +23,7 @@ import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class FragmentAccounts extends Fragment {
     private ListView lv_acounts;
@@ -42,14 +45,42 @@ public class FragmentAccounts extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_accounts, container, false);
+
+        adapter = new ListaAdapter(getContext().getApplicationContext(), R.layout.lv_row_view, acounts, inflater);
         lv_acounts = rootView.findViewById(R.id.accounts_fragment_listview);
         lv_acounts.setOnItemClickListener(itemSelectedListener());
-        adapter = new ListaAdapter(getContext().getApplicationContext(), R.layout.lv_row_view, acounts, inflater);
 
         accountService = new AccountService(rootView.getContext());
+
+        lv_acounts.setLongClickable(true);
+        lv_acounts.setOnItemLongClickListener(itemLongSelectDelete());
         initComponents();
 
         return rootView;
+    }
+
+    private AdapterView.OnItemLongClickListener itemLongSelectDelete() {
+        return new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Acount acount = acounts.get(position);
+                accountService.deleteAccount(deleteAccountFromDBCallback(position,acount.getIBAN()), acount);
+                return true;
+            }
+        };
+    }
+
+    private Callback<Integer> deleteAccountFromDBCallback(final int position, final String accountIBAN){
+        return new Callback<Integer>() {
+            @Override
+            public void runResultOnUiThread(Integer result) {
+                if(result != -1){
+                    acounts.remove(position);
+                    lv_acounts.setAdapter(adapter);
+                    Toast.makeText(getContext().getApplicationContext(), "Account with IBAN "+ accountIBAN +" was deleted from this program",Toast.LENGTH_LONG).show();
+                }
+            }
+        };
     }
 
     private AdapterView.OnItemClickListener itemSelectedListener() {
@@ -70,6 +101,8 @@ public class FragmentAccounts extends Fragment {
             }
         };
     }
+
+
 
     private void openFragment(Fragment fragment) {
         getActivity().getSupportFragmentManager()

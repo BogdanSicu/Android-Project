@@ -1,10 +1,12 @@
 package com.example.proiect_tocilarii_betivani.Util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,19 @@ public class ListaAdapter extends ArrayAdapter<Acount> {
     private int resource;
     private List<Acount> acounts;
     private LayoutInflater inflater;
+
+//pentru tematica --------------------------------------------------
+    private static final String aSmallPriceToPayForSalvation = "preferinte";
+    private static final String prefferedTheme = "theme";
+    private String loadTheme;
+
+    private ImageView accountTypeIcon;
+    private ImageView balanceIcon;
+    private ImageView bankNameIcon;
+    private ImageView ibanIcon;
+    private ImageView expireDateIcon;
+
+//    --------------------------------------------------
 
     public ListaAdapter(@NonNull Context context, int resource, @NonNull List<Acount> objects, LayoutInflater inflater) {
         super(context, resource, objects);
@@ -41,8 +56,49 @@ public class ListaAdapter extends ArrayAdapter<Acount> {
             addbalance(view, acount.getBalance());
             addBankName(view, acount.getBank());
             addIBAN(view, acount.getIBAN());
+
+
+
+//        pentru tematica --------------------------------------------------
+            initIcons(view);
+
+            SharedPreferences preferinte =getContext().getSharedPreferences(aSmallPriceToPayForSalvation, Context.MODE_PRIVATE);
+            loadTheme = preferinte.getString(prefferedTheme, "");
+
+            if(loadTheme.equals("") || loadTheme.equals("Turquoise&Green gradient") || loadTheme.equals("Blue&Green gradient")){
+                accountTypeIcon.setImageResource(R.drawable.icon_flow_blue);
+                balanceIcon.setImageResource(R.drawable.icon_balance_blue);
+                bankNameIcon.setImageResource(R.drawable.icon_bank_blue);
+                expireDateIcon.setImageResource(R.drawable.icon_expire_blue);
+                ibanIcon.setImageResource(R.drawable.icon_card_blue);
+            }
+            else if(loadTheme.equals("Purple&Blue gradient") || loadTheme.equals("Dark&Green gradient") || loadTheme.equals("Dark&Blue gradient")){
+                accountTypeIcon.setImageResource(R.drawable.icon_flow_color);
+                balanceIcon.setImageResource(R.drawable.icon_balance_color);
+                bankNameIcon.setImageResource(R.drawable.icon_bank_color);
+                expireDateIcon.setImageResource(R.drawable.icon_expire_color);
+                ibanIcon.setImageResource(R.drawable.icon_card_color);
+
+            } else if( loadTheme.equals("Pink-gradient")){
+                accountTypeIcon.setImageResource(R.drawable.icon_flow_black_pls);
+                balanceIcon.setImageResource(R.drawable.icon_balance_black);
+                bankNameIcon.setImageResource(R.drawable.icon_bank_black);
+                expireDateIcon.setImageResource(R.drawable.icon_expire_black);
+                ibanIcon.setImageResource(R.drawable.icon_card_black);
+            }
+//        --------------------------------------------------
+
         }
         return view;
+    }
+
+
+    private void initIcons(View view){
+        accountTypeIcon = view.findViewById(R.id.lv_row_typeIcon);
+        balanceIcon = view.findViewById(R.id.lv_row_balanceIcon);
+        bankNameIcon = view.findViewById(R.id.lv_row_bankIcon);
+        expireDateIcon = view.findViewById(R.id.lv_row_dateIcon);
+        ibanIcon = view.findViewById(R.id.lv_row_ibanIcon);
     }
 
     private void addAcountType(View view, AccountType accountType) {

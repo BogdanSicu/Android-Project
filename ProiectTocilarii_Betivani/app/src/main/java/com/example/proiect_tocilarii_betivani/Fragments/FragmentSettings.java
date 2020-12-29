@@ -2,6 +2,7 @@ package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.proiect_tocilarii_betivani.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,6 +29,9 @@ public class FragmentSettings extends Fragment {
     private List<String> listThemes;
     private TextInputEditText password;
     private TextInputEditText maxCredit;
+    private int numarMaximToast=0;
+
+//        pentru tematica --------------------------------------------------
     private static final String aSmallPriceToPayForSalvation = "preferinte";
     private static final String prefferedPassword = "Password";
     private static final String prefferedTheme = "theme";
@@ -34,7 +39,7 @@ public class FragmentSettings extends Fragment {
     private String loadTheme;
     private String loadPassword;
     private String loadMaxCredit;
-
+// --------------------------------------------------
 
     public static FragmentSettings newInstance() {
         FragmentSettings fragment = new FragmentSettings();
@@ -59,6 +64,29 @@ public class FragmentSettings extends Fragment {
         maxCredit.setText(loadMaxCredit);
         settingTheme.setSelection(listThemes.indexOf(loadTheme));
 
+
+        if(loadTheme.equals("")){
+            settingSave.setBackgroundResource(R.drawable.button_turquoise_green);
+
+        }else if(loadTheme.equals("Turquoise&Green gradient")){
+            settingSave.setBackgroundResource(R.drawable.button_turquoise_green);
+        }
+        else if(loadTheme.equals("Dark&Green gradient")){
+            settingSave.setBackgroundResource(R.drawable.button_dark_green);
+
+        } else if(loadTheme.equals("Dark&Blue gradient")){
+            settingSave.setBackgroundResource(R.drawable.button_dark_blue);
+
+        } else if(loadTheme.equals("Blue&Green gradient")){
+            settingSave.setBackgroundResource(R.drawable.button_blue_green);
+
+        } else if(loadTheme.equals("Purple&Blue gradient")){
+            settingSave.setBackgroundResource(R.drawable.button_purple_blue);
+
+        } else if(loadTheme.equals("Pink-gradient")){
+            settingSave.setBackgroundResource(R.drawable.button_pink);
+        }
+
         settingSave.setOnClickListener(settingsSave());
         return view;
     }
@@ -78,26 +106,32 @@ public class FragmentSettings extends Fragment {
                 if(settingTheme.getSelectedItemPosition()==0){
                     toolbarTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
                     headTheme.setBackgroundResource(R.drawable.gradient_turquoise_green);
+                    settingSave.setBackgroundResource(R.drawable.button_turquoise_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==1){
                     toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_green);
                     headTheme.setBackgroundResource(R.drawable.gradient_dark_green);
+                    settingSave.setBackgroundResource(R.drawable.button_dark_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==2){
                     toolbarTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
                     headTheme.setBackgroundResource(R.drawable.gradient_dark_blue);
+                    settingSave.setBackgroundResource(R.drawable.button_dark_blue);
 
                 } else if(settingTheme.getSelectedItemPosition()==3){
                     toolbarTheme.setBackgroundResource(R.drawable.gradient_blue_green);
                     headTheme.setBackgroundResource(R.drawable.gradient_blue_green);
+                    settingSave.setBackgroundResource(R.drawable.button_blue_green);
 
                 } else if(settingTheme.getSelectedItemPosition()==4){
                     toolbarTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
                     headTheme.setBackgroundResource(R.drawable.gradient_purple_blue);
+                    settingSave.setBackgroundResource(R.drawable.button_purple_blue);
 
                 } else if(settingTheme.getSelectedItemPosition()==5){
                     toolbarTheme.setBackgroundResource(R.drawable.gradient_pink);
                     headTheme.setBackgroundResource(R.drawable.gradient_pink);
+                    settingSave.setBackgroundResource(R.drawable.button_pink);
                 }
                     editor.putString(prefferedTheme, settingTheme.getSelectedItem().toString());
 
@@ -110,6 +144,10 @@ public class FragmentSettings extends Fragment {
                 }
                 editor.apply();
 
+                if(numarMaximToast<3) {
+                    Toast.makeText(getContext().getApplicationContext(), "Your settings were saved", Toast.LENGTH_LONG).show();
+                    numarMaximToast++;
+                }
             }
         };
     }

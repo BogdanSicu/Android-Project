@@ -117,15 +117,15 @@
         android:id="@+id/calculator_calculate_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/calculator_calculate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculator_period_til"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/gradient_turquoise_green"
-        />
+        android:layout_marginRight="8dp"
+        android:background="@drawable/button_turquoise_green"
+        android:text="@string/calculator_calculate"
+        android:textColor="@color/AlbPNM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculator_period_til" />
 
     <TextView
         android:id="@+id/calculator_conclusion_tv"

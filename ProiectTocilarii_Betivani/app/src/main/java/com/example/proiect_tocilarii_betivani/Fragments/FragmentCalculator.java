@@ -1,5 +1,7 @@
 package com.example.proiect_tocilarii_betivani.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -35,6 +37,15 @@ public class FragmentCalculator extends Fragment {
     private TextView monthly;
     private TextView yearly;
     private TextView total;
+    private int numarMaximToast=0;
+
+
+
+//pentru tematica --------------------------------------
+    private static final String aSmallPriceToPayForSalvation = "preferinte";
+    private static final String prefferedTheme = "theme";
+    private String loadTheme;
+// --------------------------------------
 
     List<Expences> expences;
     Expences curentExpence;
@@ -57,6 +68,35 @@ public class FragmentCalculator extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calculator, container, false);
         initComponents(view);
+
+//pentru tematica --------------------------------------------------
+        SharedPreferences preferinte =getContext().getSharedPreferences(aSmallPriceToPayForSalvation, Context.MODE_PRIVATE);
+        loadTheme = preferinte.getString(prefferedTheme, "");
+
+        if(loadTheme.equals("")){
+            calculate.setBackgroundResource(R.drawable.button_turquoise_green);
+
+        }else if(loadTheme.equals("Turquoise&Green gradient")){
+            calculate.setBackgroundResource(R.drawable.button_turquoise_green);
+        }
+        else if(loadTheme.equals("Dark&Green gradient")){
+            calculate.setBackgroundResource(R.drawable.button_dark_green);
+
+        } else if(loadTheme.equals("Dark&Blue gradient")){
+            calculate.setBackgroundResource(R.drawable.button_dark_blue);
+
+        } else if(loadTheme.equals("Blue&Green gradient")){
+            calculate.setBackgroundResource(R.drawable.button_blue_green);
+
+        } else if(loadTheme.equals("Purple&Blue gradient")){
+            calculate.setBackgroundResource(R.drawable.button_purple_blue);
+
+        } else if(loadTheme.equals("Pink-gradient")){
+            calculate.setBackgroundResource(R.drawable.button_pink);
+        }
+//        --------------------------------------------------
+
+
         firebaseService = FirebaseService.getInstance();
         firebaseService.attachDataChangeEventListener(dataChangeCallback());
         calculate.setOnClickListener(calculateEvent());
@@ -132,29 +172,41 @@ public class FragmentCalculator extends Fragment {
         }
         if(accountType.getCheckedRadioButtonId() == R.id.calculator_rb_credit){
             if(amount.getText() == null || (amount.getText() != null && (amount.getText().length() == 0 || Double.parseDouble(amount.getText().toString().trim()) < curentExpence.getMinCreditAmount()))){
-                Toast.makeText(getContext().getApplicationContext(),
-                        getContext().getApplicationContext().getString(R.string.toaster_invalid_amount, curentExpence.getMinCreditAmount()),
-                        Toast.LENGTH_LONG).show();
+                if(numarMaximToast<6) {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            getContext().getApplicationContext().getString(R.string.toaster_invalid_amount, curentExpence.getMinCreditAmount()),
+                            Toast.LENGTH_LONG).show();
+                    numarMaximToast++;
+                }
                 return false;
             }
             if(period.getText() == null || (period.getText() != null && (period.getText().length() == 0 || Double.parseDouble(period.getText().toString().trim()) < curentExpence.getMinCreditPeriod()))){
-                Toast.makeText(getContext().getApplicationContext(),
-                        getContext().getApplicationContext().getString(R.string.toaster_invalid_period, curentExpence.getMinCreditPeriod()),
-                        Toast.LENGTH_LONG).show();
+                if(numarMaximToast<6) {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            getContext().getApplicationContext().getString(R.string.toaster_invalid_period, curentExpence.getMinCreditPeriod()),
+                            Toast.LENGTH_LONG).show();
+                    numarMaximToast++;
+                }
                 return false;
             }
         }
         else {
             if(amount.getText() == null || (amount.getText() != null && (amount.getText().length() == 0 || Double.parseDouble(amount.getText().toString().trim()) < curentExpence.getMinDepositAmount()))){
-                Toast.makeText(getContext().getApplicationContext(),
-                        getContext().getApplicationContext().getString(R.string.toaster_invalid_amount, curentExpence.getMinDepositAmount()),
-                        Toast.LENGTH_LONG).show();
+                if(numarMaximToast<6) {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            getContext().getApplicationContext().getString(R.string.toaster_invalid_amount, curentExpence.getMinDepositAmount()),
+                            Toast.LENGTH_LONG).show();
+                    numarMaximToast++;
+                }
                 return false;
             }
             if(period.getText() == null || (period.getText() != null && (period.getText().length() == 0 || Double.parseDouble(period.getText().toString().trim()) < curentExpence.getMinDepositPeriod()))){
-                Toast.makeText(getContext().getApplicationContext(),
-                        getContext().getApplicationContext().getString(R.string.toaster_invalid_period, curentExpence.getMinDepositPeriod()),
-                        Toast.LENGTH_LONG).show();
+                if(numarMaximToast<6) {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            getContext().getApplicationContext().getString(R.string.toaster_invalid_period, curentExpence.getMinDepositPeriod()),
+                            Toast.LENGTH_LONG).show();
+                    numarMaximToast++;
+                }
                 return false;
             }
         }

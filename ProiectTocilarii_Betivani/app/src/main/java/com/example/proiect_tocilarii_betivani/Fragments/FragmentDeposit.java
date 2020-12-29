@@ -1,6 +1,7 @@
 package com.example.proiect_tocilarii_betivani.Fragments;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;

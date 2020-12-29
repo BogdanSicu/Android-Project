@@ -78,4 +78,17 @@ public class AccountService {
         };
         asyncTaskRunner.executeAsync(callable, callback);
     }
+
+    public void deleteAccount(Callback<Integer> callback, final Acount acount){
+        Callable<Integer> callable = new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                if(acount == null) {
+                    return -1;
+                }
+                return accountDao.delete(acount);
+            }
+        };
+        asyncTaskRunner.executeAsync(callable,callback);
+    }
 }

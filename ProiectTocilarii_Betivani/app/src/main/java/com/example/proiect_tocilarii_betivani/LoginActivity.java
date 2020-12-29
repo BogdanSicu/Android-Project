@@ -34,6 +34,15 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private EditText editText;
+    private List<Acount> accounts = new ArrayList<>();;
+    private AccountService accountService;
+    private List<Rates> ratesList = new ArrayList<>();
+    private RatesService rateService;
+    private int numarMaximToast=0;
+
+
+
+//        pentru tematica --------------------------------------------------
     private static final String aSmallPriceToPayForSalvation = "preferinte";
     private static final String prefferedPassword = "Password";
     private static final String prefferedTheme = "theme";
@@ -41,11 +50,8 @@ public class LoginActivity extends AppCompatActivity {
     private String loadPassword;
     private String loadTheme;
     private String loadMaxCredit;
+//    --------------------------------------------------
 
-    private List<Acount> accounts = new ArrayList<>();;
-    private AccountService accountService;
-    private List<Rates> ratesList = new ArrayList<>();
-    private RatesService rateService;
 
 
     @Override
@@ -103,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.apply();
         }
 
-
+//        pentru tematica --------------------------------------------------
         //incarcam setarea de theme
         loadTheme = preferinte.getString(prefferedTheme, "");
         View loginTheme = findViewById(R.id.activity_login);
@@ -129,6 +135,7 @@ public class LoginActivity extends AppCompatActivity {
         } else if(loadTheme.equals("Pink-gradient")){
             loginTheme.setBackgroundResource(R.drawable.gradient_pink);
         }
+//    --------------------------------------------------
 
     }
 
@@ -143,13 +150,18 @@ public class LoginActivity extends AppCompatActivity {
                     Intent main = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(main);
                     finish();
-                }else if(loadPassword.equals("0000")){
+                }else if(loadPassword.equals("0000") && numarMaximToast<3){
                     Toast.makeText(LoginActivity.this, "The default password is 0000", Toast.LENGTH_LONG).show();
+                    numarMaximToast++;
+                    v.setText("");
                 }
                 else{
+                    if(numarMaximToast<4) {
+                        Toast.makeText(LoginActivity.this, v.getText().toString() + " is the wrong password", Toast.LENGTH_LONG).show();
+                        numarMaximToast++;
+                        v.setText("");
+                    }
 
-                    Toast.makeText(LoginActivity.this, v.getText().toString() + " is the wrong password", Toast.LENGTH_LONG).show();
-                    v.setText("");
                 }
             }
             return false;

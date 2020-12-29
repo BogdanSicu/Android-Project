@@ -1,5 +1,7 @@
 package com.example.proiect_tocilarii_betivani.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,6 +31,11 @@ public class FragmentCredit extends Fragment {
     TextView bank;
     Button pay;
 
+//pentru tematica --------------------------------------------------
+    private static final String aSmallPriceToPayForSalvation = "preferinte";
+    private static final String prefferedTheme = "theme";
+    private String loadTheme;
+//    --------------------------------------------------
     Acount acount;
     public FragmentCredit() {
         // Required empty public constructor
@@ -48,6 +55,34 @@ public class FragmentCredit extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_credit, container, false);
         initComponents(view);
+
+//        pentru tematica --------------------------------------------------
+        SharedPreferences preferinte =getContext().getSharedPreferences(aSmallPriceToPayForSalvation, Context.MODE_PRIVATE);
+        loadTheme = preferinte.getString(prefferedTheme, "");
+
+        if(loadTheme.equals("")){
+            pay.setBackgroundResource(R.drawable.button_turquoise_green);
+
+        }else if(loadTheme.equals("Turquoise&Green gradient")){
+            pay.setBackgroundResource(R.drawable.button_turquoise_green);
+        }
+        else if(loadTheme.equals("Dark&Green gradient")){
+            pay.setBackgroundResource(R.drawable.button_dark_green);
+
+        } else if(loadTheme.equals("Dark&Blue gradient")){
+            pay.setBackgroundResource(R.drawable.button_dark_blue);
+
+        } else if(loadTheme.equals("Blue&Green gradient")){
+            pay.setBackgroundResource(R.drawable.button_blue_green);
+
+        } else if(loadTheme.equals("Purple&Blue gradient")){
+            pay.setBackgroundResource(R.drawable.button_purple_blue);
+
+        } else if(loadTheme.equals("Pink-gradient")){
+            pay.setBackgroundResource(R.drawable.button_pink);
+        }
+//        --------------------------------------------------
+
         populateComponents();
         pay.setOnClickListener(peyClickLitener());
         return view;
