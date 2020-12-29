@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.example.proiect_tocilarii_betivani.Fragments.FragmentAccounts;
+import com.example.proiect_tocilarii_betivani.Fragments.FragmentAddAccount;
 import com.example.proiect_tocilarii_betivani.Fragments.FragmentCalculator;
 import com.example.proiect_tocilarii_betivani.Fragments.FragmentGrafix;
 import com.example.proiect_tocilarii_betivani.Fragments.FragmentSettings;
@@ -170,8 +171,15 @@ public class MainActivity extends AppCompatActivity {
                 if(item.getItemId() == R.id.settings_button){
                     fragmentCreated = FragmentSettings.newInstance();
                 }
+                if(item.getItemId() == R.id.menu_item_DepositAdd){
+                    fragmentCreated = FragmentAddAccount.newInstance();
+                    openFragmentAdd();
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                }
                 //incarcam pe ecran fragmentul corespunzator optiunii selectate
                 openFragment();
+
                 //inchidem meniul lateral
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
@@ -195,6 +203,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
                 .replace(R.id.main_frame_container, fragmentCreated)//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
+                .commit();//se confirma schimbarea
+    }
+    private void openFragmentAdd() {
+        //se preia managerul de la nivelul appCompatActivity pentru a putea adauga un nou fragment
+        //in interiorul unui FrameLayout
+        getSupportFragmentManager()
+                .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
+                .replace(R.id.main_frame_container, fragmentCreated)
+                .addToBackStack("Add Fragment")//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
                 .commit();//se confirma schimbarea
     }
 

@@ -13,7 +13,7 @@
     <string name="menu_statistics">Statistics</string>
     <string name="menu_feedback">Help others</string>
     <string name="menu_acounts">Acounts</string>
-    <string name="menu_Feedback">Feedback</string>
+    <string name="menu_Feedback">Statistics</string>
     <string name="lv_row_account_type">Account Type</string>
     <string name="lv_row_iban">IBAN</string>
     <string name="lv_row_date">Date</string>
@@ -68,4 +68,5 @@
 
     <string name="deposit_balance_param">Balance: %1$.0f</string>
     <string name="deposit_profit_param">Your monthly loan: %1$.0f</string>
+    <string name="menu_deposit_add">Add account</string>
 </resources>

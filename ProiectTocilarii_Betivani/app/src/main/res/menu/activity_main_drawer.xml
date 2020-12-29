@@ -21,6 +21,10 @@
                         android:id="@+id/menu_item_DepositAccounts"
                         android:icon="@drawable/icon_menu_deposit_accounts"
                         android:title="@string/menu_deposit_accounts" />
+                    <item
+                        android:id="@+id/menu_item_DepositAdd"
+                        android:icon="@drawable/icon_menu_add_account"
+                        android:title="@string/menu_deposit_add" />
                 </group>
             </menu>
         </item>
