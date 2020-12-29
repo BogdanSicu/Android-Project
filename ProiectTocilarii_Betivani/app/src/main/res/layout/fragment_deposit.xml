@@ -10,154 +10,170 @@
     <TextView
         android:id="@+id/deposit_holder_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/holder_credit_label"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/deposit_holder_tv"
-        android:layout_marginTop="16dp"
+        android:layout_height="27dp"
         android:layout_marginLeft="8dp"
-        />
+        android:layout_marginTop="25dp"
+        android:text="@string/holder_credit_label"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/deposit_holder_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/deposit_holder_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/deposit_holder_label"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="8dp"
-        />
+        android:textAlignment="textEnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deposit_holder_label"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/deposit_credit_tv"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="@string/deposit_type"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_holder_label"
-        app:layout_constraintEnd_toStartOf="@+id/deposit_bank_tv"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
-        />
+        android:layout_marginTop="25dp"
+        android:text="@string/deposit_type"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/deposit_bank_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deposit_holder_label" />
+
     <TextView
         android:id="@+id/deposit_bank_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deposit_holder_tv"
-        app:layout_constraintStart_toEndOf="@id/deposit_create_tv"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="8dp"
-        />
+        android:textAlignment="textEnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deposit_credit_tv"
+        app:layout_constraintTop_toBottomOf="@id/deposit_holder_tv" />
 
     <TextView
         android:id="@+id/deposit_iban_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:text="@string/iban_credit_label"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/deposit_iban_tv"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/deposit_iban_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deposit_credit_tv" />
+
     <TextView
         android:id="@+id/deposit_iban_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_iban_label"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="8dp"
-        />
+        android:textAlignment="textEnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deposit_iban_label"
+        app:layout_constraintTop_toBottomOf="@+id/deposit_bank_tv" />
 
     <TextView
         android:id="@+id/deposit_rate_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="25dp"
         android:text="@string/deposit_rate_label"
-        android:textSize="16dp"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deposit_rate_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deposit_iban_tv"
-        />
+        app:layout_constraintTop_toBottomOf="@id/deposit_iban_label" />
 
     <TextView
         android:id="@+id/deposit_rate_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="8dp"
-        android:textSize="16dp"
-        android:layout_marginTop="8dp"
+        android:textAlignment="textEnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/deposit_rate_label"
-        app:layout_constraintTop_toBottomOf="@id/deposit_iban_tv"
-        />
+        app:layout_constraintStart_toEndOf="@id/deposit_rate_label"
+        app:layout_constraintTop_toBottomOf="@id/deposit_iban_tv" />
 
     <TextView
         android:id="@+id/deposit_create_label"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/created_on_credit_label"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_rate_label"
-        app:layout_constraintEnd_toStartOf="@+id/deposit_expiration_label"
-        android:layout_marginTop="24dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        />
+        android:layout_marginTop="25dp"
+        android:text="@string/created_on_credit_label"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/deposit_rate_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deposit_create_tv"/>
+
     <TextView
         android:id="@+id/deposit_expiration_label"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/period_credit_label"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_rate_tv"
-        app:layout_constraintStart_toEndOf="@+id/deposit_create_label"
-        android:layout_marginTop="24dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        />
+        android:layout_marginTop="25dp"
+        android:text="@string/period_credit_label"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/deposit_expiration_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deposit_create_label" />
 
     <TextView
         android:id="@+id/deposit_create_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_create_label"
-        app:layout_constraintEnd_toStartOf="@+id/deposit_expiration_tv"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="8dp"
-        />
+        android:textAlignment="textEnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deposit_create_label"
+        app:layout_constraintTop_toBottomOf="@+id/deposit_rate_tv" />
+
     <TextView
         android:id="@+id/deposit_expiration_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_expiration_label"
-        app:layout_constraintStart_toEndOf="@+id/deposit_create_tv"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="8dp"
-        />
+        android:textAlignment="textEnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deposit_expiration_label"
+        app:layout_constraintTop_toBottomOf="@+id/deposit_create_tv" />
 
     <TextView
         android:id="@+id/deposit_balance_tv"
@@ -167,7 +183,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/deposit_expiration_tv"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="95dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         />
@@ -217,11 +233,11 @@
         android:layout_height="20dp"
         android:minHeight="16dp"
         android:scaleY="3"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_profit_tv"/>
+        app:layout_constraintTop_toBottomOf="@+id/deposit_expiration_tv"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
