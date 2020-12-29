@@ -1,6 +1,7 @@
 package com.example.proiect_tocilarii_betivani.LocalDataBase.Services;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.proiect_tocilarii_betivani.Firebase.CallBack;
 import com.example.proiect_tocilarii_betivani.LocalDataBase.Dao.AccountDao;
@@ -79,16 +80,32 @@ public class AccountService {
         asyncTaskRunner.executeAsync(callable, callback);
     }
 
-    public void deleteAccount(Callback<Integer> callback, final Acount acount){
+    public void deleteAccount(Callback<Integer> callback, final Acount acount) {
         Callable<Integer> callable = new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
-                if(acount == null) {
+                if (acount == null) {
                     return -1;
                 }
                 return accountDao.delete(acount);
             }
         };
-        asyncTaskRunner.executeAsync(callable,callback);
+        asyncTaskRunner.executeAsync(callable, callback);
+    }
+    public void update(Callback<Acount> callback,final Acount account){
+        Callable<Acount> callable = new Callable<Acount>() {
+            @Override
+            public Acount call() throws Exception {
+                if(account == null){
+                    return null;
+                }
+                int count = accountDao.update(account);
+                if(count<1){
+                    return null;
+                }
+                return account;
+            }
+        };
+        asyncTaskRunner.executeAsync(callable, callback);
     }
 }
