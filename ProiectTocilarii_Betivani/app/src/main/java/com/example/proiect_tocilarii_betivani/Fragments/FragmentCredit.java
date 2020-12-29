@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.proiect_tocilarii_betivani.LocalDataBase.Services.AccountService;
 import com.example.proiect_tocilarii_betivani.R;
 import com.example.proiect_tocilarii_betivani.Util.Acount;
+import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DecimalFormat;
@@ -30,6 +33,8 @@ public class FragmentCredit extends Fragment {
     Button pay;
 
     Acount acount;
+
+    private AccountService accountService;
     public FragmentCredit() {
         // Required empty public constructor
     }
@@ -49,18 +54,41 @@ public class FragmentCredit extends Fragment {
         View view = inflater.inflate(R.layout.fragment_credit, container, false);
         initComponents(view);
         populateComponents();
-        pay.setOnClickListener(peyClickLitener());
+        accountService = new AccountService(view.getContext());
+        pay.setOnClickListener(peyClickListener());
         return view;
     }
 
-    private View.OnClickListener peyClickLitener() {
+    private View.OnClickListener peyClickListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Todo
+                if(acount.getPeriod() > 0){
+                    float sumPerMonth = acount.getBalance()/acount.getPeriod();
+                    float totalPerMonth = sumPerMonth - sumPerMonth*acount.getRate()/100;
+
+                    acount.setBalance(totalPerMonth>acount.getBalance() ? 0:acount.getBalance() - totalPerMonth);
+                    acount.setPeriod(acount.getPeriod() - 1);
+                    accountService.update(updateCallBack(), acount);
+                    Toast.makeText(getContext().getApplicationContext(), "Loan payed", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getContext().getApplicationContext(), "You do not have to pay any more", Toast.LENGTH_LONG).show();
+                }
             }
         };
 
+    }
+
+    private Callback<Acount> updateCallBack() {
+        return  new Callback<Acount>() {
+            @Override
+            public void runResultOnUiThread(Acount result) {
+                if(result != null){
+                    populateComponents();
+                }
+            }
+        };
     }
 
     private void populateComponents() {
@@ -72,10 +100,15 @@ public class FragmentCredit extends Fragment {
         expire.setText(String.valueOf(acount.getPeriod()));
         bank.setText(acount.getBank());
 
-        double sumPerMonth = acount.getBalance()/acount.getPeriod();
-        double totalPerMonth = sumPerMonth - sumPerMonth*acount.getRate()/100;
+        if(acount.getBalance() == 0 || acount.getPeriod() == 0){
+            amount.setText(String.valueOf(0));
+        }
+        else {
+            double sumPerMonth = acount.getBalance()/acount.getPeriod();
+            double totalPerMonth = sumPerMonth - sumPerMonth*acount.getRate()/100;
 
-        amount.setText(new DecimalFormat("##.##").format(totalPerMonth));
+            amount.setText(new DecimalFormat("##.##").format(totalPerMonth));
+        }
     }
 
     private void initComponents(View view) {
@@ -88,6 +121,7 @@ public class FragmentCredit extends Fragment {
         amount = view.findViewById(R.id.credit_sum_tv);
         pay = view.findViewById(R.id.credit_pay_button);
         bank = view.findViewById(R.id.credit_bank_tv);
+
 
         if(getArguments()!=null){
             acount = getArguments().getParcelable(CREDIT_ACCOUNT_KEY);
