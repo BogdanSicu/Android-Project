@@ -29,7 +29,6 @@ public class GrafixView extends View {
         ratesService.getAllRates(getAllRatesFromDB());
 
         this.paint = new Paint();
-        paint.setTextSize(50);
     }
 
     @Override
@@ -49,14 +48,16 @@ public class GrafixView extends View {
         int depositColor = Color.rgb(20, 5, 90);
 
         paint.setColor(creditColor);
-        canvas.drawRect(50, 50, 100, 100, paint);
+        canvas.drawRect(40, 40, 90, 90, paint);
         paint.setColor(Color.BLACK);
-        canvas.drawText(getContext().getString(R.string.grafx_credit_rate), 110, 95, paint);
+        canvas.drawText(getContext().getString(R.string.grafx_credit_rate), 100, 90, paint);
+
+        paint.setTextSize(getHeight()*3/100);
 
         paint.setColor(depositColor);
-        canvas.drawRect(450, 50, 500, 100, paint);
+        canvas.drawRect(getWidth()/2-50, 40, getWidth()/2, 90, paint);
         paint.setColor(Color.BLACK);
-        canvas.drawText(getContext().getString(R.string.grafix_deposit_rate), 510, 95, paint);
+        canvas.drawText(getContext().getString(R.string.grafix_deposit_rate), getWidth()/2+10, 90, paint);
 
         for (Rates rate : ratesList) {
             float credit = rate.getCreditRate();
