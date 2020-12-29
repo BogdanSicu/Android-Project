@@ -133,13 +133,26 @@ public class FragmentAddAccount extends Fragment {
                     "Please enter IBAN", Toast.LENGTH_LONG).show();
             return false;
         }
-        if(rate.getText()==null ||
-                (rate.getText()!=null && !String.valueOf(rate.getText()).trim().isEmpty() && (Double.parseDouble(String.valueOf(rate.getText())) == 0))
-                || rate.getText()!=null && String.valueOf(rate.getText()).trim().isEmpty()){
+        if(rate.getText()!=null && String.valueOf(rate.getText()).trim().isEmpty()){
 
             Toast.makeText(getContext().getApplicationContext(),
                     "Please enter valid rate", Toast.LENGTH_LONG).show();
             return false;
+        }
+        else {
+            try{
+                double rateVerify = Double.parseDouble(String.valueOf(rate.getText()));
+                if(rateVerify == 0)
+                {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            "Please enter valid rate", Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            }catch(Exception e){
+                Toast.makeText(getContext().getApplicationContext(),
+                        "Please enter valid rate", Toast.LENGTH_LONG).show();
+                return false;
+            }
         }
         if(createDate.getText()==null || (createDate.getText()!=null && String.valueOf(createDate.getText()).trim().isEmpty())){
             Toast.makeText(getContext().getApplicationContext(),
@@ -163,12 +176,24 @@ public class FragmentAddAccount extends Fragment {
                     "Please enter valid period", Toast.LENGTH_LONG).show();
             return false;
         }
-        if(balance.getText()==null ||
-                (rate.getText()!=null && !String.valueOf(balance.getText()).trim().isEmpty() && (Double.parseDouble(String.valueOf(balance.getText())) == 0))
-                || balance.getText()!=null && String.valueOf(balance.getText()).trim().isEmpty()){
+        if(balance.getText()!=null && String.valueOf(balance.getText()).trim().isEmpty()){
             Toast.makeText(getContext().getApplicationContext(),
                     "Please enter valid balance", Toast.LENGTH_LONG).show();
             return false;
+        }else{
+            try{
+                double balanceVerify = Double.parseDouble(String.valueOf(balance.getText()));
+                if(balanceVerify == 0)
+                {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            "Please enter valid balance", Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            }catch(Exception e){
+                Toast.makeText(getContext().getApplicationContext(),
+                        "Please enter valid balance", Toast.LENGTH_LONG).show();
+                return false;
+            }
         }
         return true;
     }

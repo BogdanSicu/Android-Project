@@ -121,8 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/add_create_date_dd_mm_yyyy"
-                android:fontFamily="@font/inconsolata_medium"
-                android:inputType="date"/>
+                android:fontFamily="@font/inconsolata_medium"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
