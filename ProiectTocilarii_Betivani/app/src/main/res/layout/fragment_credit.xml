@@ -1,253 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentCredit"
-    android:id="@+id/fragment_credit">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/credit_holder_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/holder_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/credit_holder_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/credit_holder_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_holder_label"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/credit_credit_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/credit_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/credit_iban_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_holder_label" />
-
-    <TextView
-        android:id="@+id/credit_bank_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/credit_credit_tv"
-        app:layout_constraintTop_toBottomOf="@+id/credit_holder_tv" />
-
-    <TextView
-        android:id="@+id/credit_iban_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/iban_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_credit_tv" />
-
-    <TextView
-        android:id="@+id/credit_iban_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_iban_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_bank_tv" />
-
-    <TextView
-        android:id="@+id/credit_balance_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/balance_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/credit_balance_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_iban_tv" />
-
-    <TextView
-        android:id="@+id/credit_balance_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_balance_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_iban_tv" />
-
-    <TextView
-        android:id="@+id/credit_rate_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/credit_rate_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/credit_rate_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_balance_label" />
-
-    <TextView
-        android:id="@+id/credit_rate_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_rate_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_balance_tv" />
-
-    <TextView
-        android:id="@+id/credit_create_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/created_on_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/credit_create_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_rate_label" />
-
-    <TextView
-        android:id="@+id/credit_expiration_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/period_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/credit_expiration_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_create_label" />
-
-    <TextView
-        android:id="@+id/credit_create_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_create_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_rate_tv" />
-
-    <TextView
-        android:id="@+id/credit_expiration_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_expiration_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_create_tv" />
-
-    <TextView
-        android:id="@+id/credit_pay_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/pay_credit_label"
-        android:textAlignment="textStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/credit_sum_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credit_expiration_label" />
-
-    <TextView
-        android:id="@+id/credit_sum_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="8dp"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/credit_pay_label"
-        app:layout_constraintTop_toBottomOf="@+id/credit_expiration_tv" />
-
-    <Button
-        android:id="@+id/credit_pay_button"
+    //enclose your code for contents of fragment here. This helped me to add scroll view to the fragment
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_turquoise_green"
-        android:text="@string/credit_pay"
-        android:textColor="@color/AlbPNM"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="30dp"
-        android:fontFamily="@font/inconsolata_medium"/>
+        android:layout_height="match_parent"
+        tools:context=".Fragments.FragmentCredit"
+        android:id="@+id/fragment_credit">
+
+        <TextView
+            android:id="@+id/credit_holder_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/holder_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/credit_holder_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/credit_holder_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_holder_label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/credit_credit_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/credit_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/credit_iban_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_holder_label" />
+
+        <TextView
+            android:id="@+id/credit_bank_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/credit_credit_tv"
+            app:layout_constraintTop_toBottomOf="@+id/credit_holder_tv" />
+
+        <TextView
+            android:id="@+id/credit_iban_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/iban_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_credit_tv" />
+
+        <TextView
+            android:id="@+id/credit_iban_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_iban_label"
+            app:layout_constraintTop_toBottomOf="@+id/credit_bank_tv" />
+
+        <TextView
+            android:id="@+id/credit_balance_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/balance_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/credit_balance_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_iban_tv" />
+
+        <TextView
+            android:id="@+id/credit_balance_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_balance_label"
+            app:layout_constraintTop_toBottomOf="@+id/credit_iban_tv" />
+
+        <TextView
+            android:id="@+id/credit_rate_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/credit_rate_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/credit_rate_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_balance_label" />
+
+        <TextView
+            android:id="@+id/credit_rate_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_rate_label"
+            app:layout_constraintTop_toBottomOf="@+id/credit_balance_tv" />
+
+        <TextView
+            android:id="@+id/credit_create_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/created_on_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/credit_create_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_rate_label" />
+
+        <TextView
+            android:id="@+id/credit_expiration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/period_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/credit_expiration_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_create_label" />
+
+        <TextView
+            android:id="@+id/credit_create_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_create_label"
+            app:layout_constraintTop_toBottomOf="@+id/credit_rate_tv" />
+
+        <TextView
+            android:id="@+id/credit_expiration_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_expiration_label"
+            app:layout_constraintTop_toBottomOf="@+id/credit_create_tv" />
+
+        <TextView
+            android:id="@+id/credit_pay_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/pay_credit_label"
+            android:textAlignment="textStart"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/credit_sum_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credit_expiration_label" />
+
+        <TextView
+            android:id="@+id/credit_sum_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/credit_pay_label"
+            app:layout_constraintTop_toBottomOf="@+id/credit_expiration_tv" />
+
+        <Button
+            android:id="@+id/credit_pay_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/button_turquoise_green"
+            android:text="@string/credit_pay"
+            android:textColor="@color/AlbPNM"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/credit_sum_tv"
+            android:textSize="30dp"
+            android:fontFamily="@font/inconsolata_medium"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</ScrollView>
+
