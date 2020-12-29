@@ -63,14 +63,14 @@ public class FragmentDeposit extends Fragment {
     private void populateComponents() {
         holder.setText(acount.getHolder());
         iban.setText(acount.getIBAN());
-        balance.setText(new DecimalFormat("##.##").format(acount.getBalance()));
+        balance.setText(getContext().getApplicationContext().getString(R.string.deposit_balance_param, acount.getBalance()));
         rate.setText(new DecimalFormat("##.##").format(acount.getRate()));
         create.setText(acount.getCreateDate());
         expire.setText(String.valueOf(acount.getPeriod()));
         bank.setText(String.valueOf(acount.getBank()));
 
-        double Profit = acount.getBalance()*acount.getRate()/100;
-        profit.setText(new DecimalFormat("##.##").format(Profit));
+        float Profit = acount.getBalance()*acount.getRate()/100;
+        profit.setText(getContext().getApplicationContext().getString(R.string.deposit_profit_param, Profit));
 
         String limit;
         SharedPreferences preferinte = getContext().getApplicationContext().getSharedPreferences(aSmallPriceToPayForSalvation, MODE_PRIVATE);
