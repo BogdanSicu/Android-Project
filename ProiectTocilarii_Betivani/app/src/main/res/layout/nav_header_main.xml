@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Banking App"
+        android:text="@string/head_app_name"
         android:textAlignment="textEnd"
         android:layout_gravity="end"
         android:textSize="20dp"
@@ -38,7 +38,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="by Tocilarii Betivani"
+        android:text="@string/head_app_team"
         android:textAlignment="textEnd"
         android:layout_gravity="end"/>
 </LinearLayout>

@@ -95,4 +95,6 @@
     <string name="toast_setings_saved">Your settings were saved</string>
     <string name="toaster_login_default">The default password is 0000</string>
     <string name="toaster_login_incorect">Incorrect password!</string>
+    <string name="head_app_name">CalculWise</string>
+    <string name="head_app_team">by Tocilarii Betivani</string>
 </resources>
