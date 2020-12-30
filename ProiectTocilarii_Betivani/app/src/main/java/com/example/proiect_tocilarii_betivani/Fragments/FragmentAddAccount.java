@@ -121,10 +121,20 @@ public class FragmentAddAccount extends Fragment {
                 if(result != null) {
                     Toast.makeText(getContext().getApplicationContext(),
                             toast_add_added, Toast.LENGTH_LONG).show();
-                    getActivity().getSupportFragmentManager().popBackStack();
+                    openFragmentAdd();
                 }
             }
         };
+    }
+
+    private void openFragmentAdd() {
+        //se preia managerul de la nivelul appCompatActivity pentru a putea adauga un nou fragment
+        //in interiorul unui FrameLayout
+        Fragment fragment = FragmentAccounts.newInstance(100);
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()//incepe tranzactia pentru adaugarea fragmentului
+                .replace(R.id.main_frame_container, fragment)//se inlocuieste FrameLayout din content_main.xml cu fisierul xml a fragmentul initializat
+                .commit();//se confirma schimbarea
     }
 
     private boolean valid() {
