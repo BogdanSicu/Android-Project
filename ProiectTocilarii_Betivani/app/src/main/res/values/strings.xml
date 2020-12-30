@@ -81,4 +81,18 @@
     <string name="add_deposit">Deposit</string>
     <string name="add_add_account">Add account</string>
     <string name="credit_pay">Pay</string>
+    <string name="toast_add_added">Account added</string>
+    <string name="toast_add_invalid_holder">Please enter holder name</string>
+    <string name="toaster_add_invalid_bank">Please enter bank</string>
+    <string name="toaster_add_invalid_iban">Please enter IBAN</string>
+    <string name="toaster_add_no_rate">Please enter valid rate</string>
+    <string name="toaster_add_invalid_rate">Please enter valid rate</string>
+    <string name="toaster_no_invalid_date">Please enter the create date</string>
+    <string name="toaster_add_invalid_date">Please enter a valid date</string>
+    <string name="toaster_add_no_period">Please enter valid period</string>
+    <string name="toaster_add_no_balance">Please enter valid balance</string>
+    <string name="toaster_add_invalid_balance">Please enter valid balance</string>
+    <string name="toast_setings_saved">Your settings were saved</string>
+    <string name="toaster_login_default">The default password is 0000</string>
+    <string name="toaster_login_incorect">Incorrect password!</string>
 </resources>

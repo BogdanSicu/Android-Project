@@ -24,6 +24,8 @@ import com.example.proiect_tocilarii_betivani.asyncTask.Callback;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_login_incorect;
+
 public class LoginActivity extends AppCompatActivity {
 
     private View decorView;
@@ -99,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString(prefferedPassword, "0000");
             //aplicam schimbarile
             editor.apply();
-            Toast.makeText(LoginActivity.this, "The default password is 0000", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, R.string.toaster_login_default, Toast.LENGTH_LONG).show();
         }
 
         loadMaxCredit = preferinte.getString(prefferedMaxCredit,"");
@@ -151,13 +153,13 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(main);
                     finish();
                 }else if(loadPassword.equals("0000") && numarMaximToast<3){
-                    Toast.makeText(LoginActivity.this, "The default password is 0000", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, R.string.toaster_login_default, Toast.LENGTH_LONG).show();
                     numarMaximToast++;
                     v.setText("");
                 }
                 else{
                     if(numarMaximToast<4) {
-                        Toast.makeText(LoginActivity.this, v.getText().toString() + " is the wrong password", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, toaster_login_incorect, Toast.LENGTH_LONG).show();
                         numarMaximToast++;
                         v.setText("");
                     }

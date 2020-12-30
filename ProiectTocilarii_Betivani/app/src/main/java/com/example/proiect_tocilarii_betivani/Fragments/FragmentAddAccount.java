@@ -26,6 +26,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.example.proiect_tocilarii_betivani.R.string.toast_add_added;
+import static com.example.proiect_tocilarii_betivani.R.string.toast_add_invalid_holder;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_add_invalid_balance;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_add_invalid_bank;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_add_invalid_date;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_add_no_balance;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_add_no_period;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_add_no_rate;
+import static com.example.proiect_tocilarii_betivani.R.string.toaster_no_invalid_date;
+
 
 public class FragmentAddAccount extends Fragment {
     private TextInputEditText holder;
@@ -110,7 +120,7 @@ public class FragmentAddAccount extends Fragment {
             public void runResultOnUiThread(Acount result) {
                 if(result != null) {
                     Toast.makeText(getContext().getApplicationContext(),
-                            "Account added", Toast.LENGTH_LONG).show();
+                            toast_add_added, Toast.LENGTH_LONG).show();
                     getActivity().getSupportFragmentManager().popBackStack();
                 }
             }
@@ -120,23 +130,23 @@ public class FragmentAddAccount extends Fragment {
     private boolean valid() {
         if(holder.getText()==null || (holder.getText()!=null && String.valueOf(holder.getText()).trim().isEmpty())){
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter holder name", Toast.LENGTH_LONG).show();
+                    toast_add_invalid_holder, Toast.LENGTH_LONG).show();
             return false;
         }
         if(bank.getText()==null || (bank.getText()!=null && String.valueOf(bank.getText()).trim().isEmpty())){
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter bank", Toast.LENGTH_LONG).show();
+                    toaster_add_invalid_bank, Toast.LENGTH_LONG).show();
             return false;
         }
         if(iban.getText()==null || (iban.getText()!=null && String.valueOf(iban.getText()).trim().isEmpty())){
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter IBAN", Toast.LENGTH_LONG).show();
+                    R.string.toaster_add_invalid_iban , Toast.LENGTH_LONG).show();
             return false;
         }
         if(rate.getText()!=null && String.valueOf(rate.getText()).trim().isEmpty()){
 
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter valid rate", Toast.LENGTH_LONG).show();
+                    toaster_add_no_rate, Toast.LENGTH_LONG).show();
             return false;
         }
         else {
@@ -145,18 +155,18 @@ public class FragmentAddAccount extends Fragment {
                 if(rateVerify == 0)
                 {
                     Toast.makeText(getContext().getApplicationContext(),
-                            "Please enter valid rate", Toast.LENGTH_LONG).show();
+                            R.string.toaster_add_invalid_rate, Toast.LENGTH_LONG).show();
                     return false;
                 }
             }catch(Exception e){
                 Toast.makeText(getContext().getApplicationContext(),
-                        "Please enter valid rate", Toast.LENGTH_LONG).show();
+                        R.string.toaster_add_invalid_rate, Toast.LENGTH_LONG).show();
                 return false;
             }
         }
         if(createDate.getText()==null || (createDate.getText()!=null && String.valueOf(createDate.getText()).trim().isEmpty())){
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter the create date", Toast.LENGTH_LONG).show();
+                    toaster_no_invalid_date, Toast.LENGTH_LONG).show();
             return false;
         }
         else{
@@ -165,7 +175,7 @@ public class FragmentAddAccount extends Fragment {
                 Date date = format.parse(String.valueOf(createDate.getText()));
             } catch (Exception e) {
                 Toast.makeText(getContext().getApplicationContext(),
-                        "Please enter a valid date", Toast.LENGTH_LONG).show();
+                        toaster_add_invalid_date, Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -173,12 +183,12 @@ public class FragmentAddAccount extends Fragment {
                 (period.getText()!=null && !String.valueOf(period.getText()).trim().isEmpty() && (Double.parseDouble(String.valueOf(period.getText())) == 0))
                 || period.getText()!=null && String.valueOf(period.getText()).trim().isEmpty()){
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter valid period", Toast.LENGTH_LONG).show();
+                    toaster_add_no_period, Toast.LENGTH_LONG).show();
             return false;
         }
         if(balance.getText()!=null && String.valueOf(balance.getText()).trim().isEmpty()){
             Toast.makeText(getContext().getApplicationContext(),
-                    "Please enter valid balance", Toast.LENGTH_LONG).show();
+                    toaster_add_no_balance, Toast.LENGTH_LONG).show();
             return false;
         }else{
             try{
@@ -186,12 +196,12 @@ public class FragmentAddAccount extends Fragment {
                 if(balanceVerify == 0)
                 {
                     Toast.makeText(getContext().getApplicationContext(),
-                            "Please enter valid balance", Toast.LENGTH_LONG).show();
+                            toaster_add_invalid_balance, Toast.LENGTH_LONG).show();
                     return false;
                 }
             }catch(Exception e){
                 Toast.makeText(getContext().getApplicationContext(),
-                        "Please enter valid balance", Toast.LENGTH_LONG).show();
+                            toaster_add_invalid_balance, Toast.LENGTH_LONG).show();
                 return false;
             }
         }

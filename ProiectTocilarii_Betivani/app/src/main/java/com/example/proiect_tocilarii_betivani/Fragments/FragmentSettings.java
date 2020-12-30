@@ -21,6 +21,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.proiect_tocilarii_betivani.R.string.toast_setings_saved;
+
 
 public class FragmentSettings extends Fragment {
 
@@ -145,7 +147,7 @@ public class FragmentSettings extends Fragment {
                 editor.apply();
 
                 if(numarMaximToast<3) {
-                    Toast.makeText(getContext().getApplicationContext(), "Your settings were saved", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), toast_setings_saved, Toast.LENGTH_LONG).show();
                     numarMaximToast++;
                 }
             }
